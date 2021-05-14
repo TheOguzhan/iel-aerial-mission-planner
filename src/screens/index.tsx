@@ -15,7 +15,7 @@ const Screen: React.FC = () => {
       <LoadScript googleMapsApiKey={google_maps_api_key}>
         <GoogleMap
           mapContainerClassName="md:w-1/2 md:mx-auto"
-          mapContainerStyle={{height: "32rem", minHeight: "10rem"}}
+          mapContainerStyle={{ height: "32rem", minHeight: "10rem" }}
           center={center}
           zoom={10}
         ></GoogleMap>
