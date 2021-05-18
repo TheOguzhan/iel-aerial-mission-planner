@@ -1,6 +1,7 @@
 import React from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import config from "../config";
+import Table from "../components/Table";
 
 const center = {
   lat: 41.01202178051607,
@@ -17,9 +18,10 @@ const Screen: React.FC = () => {
           mapContainerClassName="md:w-1/2 md:mx-auto"
           mapContainerStyle={{ height: "32rem", minHeight: "10rem" }}
           center={center}
-          zoom={10}
+          zoom={15}
         ></GoogleMap>
       </LoadScript>
+      <Table />
     </div>
   );
 };
