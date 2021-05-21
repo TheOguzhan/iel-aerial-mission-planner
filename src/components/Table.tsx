@@ -1,7 +1,8 @@
 import * as React from "react";
 import Data from "../@types/data";
+import Column from "./Column";
 interface ITableProps {
-    //marks: Data[]
+  marks: Data[];
 }
 
 const Table: React.FunctionComponent<ITableProps> = (props) => {
@@ -51,47 +52,9 @@ const Table: React.FunctionComponent<ITableProps> = (props) => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td className=" dark:border-green-600 dark:bg-green-500 p-2 border-blue-500 bg-blue-400">
-            1
-          </td>
-          <td className=" dark:border-green-600 dark:bg-green-500 p-2 border-blue-500 bg-blue-400">
-            Command
-          </td>
-          <td className=" dark:border-green-600 dark:bg-green-500 p-2 border-blue-500 bg-blue-400">
-            p1
-          </td>
-          <td className=" dark:border-green-600 dark:bg-green-500 p-2 border-blue-500 bg-blue-400">
-            p2
-          </td>
-          <td className=" dark:border-green-600 dark:bg-green-500 p-2 border-blue-500 bg-blue-400">
-            p3
-          </td>
-          <td className=" dark:border-green-600 dark:bg-green-500 p-2 border-blue-500 bg-blue-400">
-            p4
-          </td>
-          <td className=" dark:border-green-600 dark:bg-green-500 p-2 border-blue-500 bg-blue-400">
-            Lat
-          </td>
-          <td className=" dark:border-green-600 dark:bg-green-500 p-2 border-blue-500 bg-blue-400">
-            Long
-          </td>
-          <td className=" dark:border-green-600 dark:bg-green-500 p-2 border-blue-500 bg-blue-400">
-            Alt
-          </td>
-          <td className=" dark:border-green-600 dark:bg-green-500 p-2 border-blue-500 bg-blue-400">
-            Frame
-          </td>
-          <td className=" dark:border-green-600 dark:bg-green-500 p-2 border-blue-500 bg-blue-400">
-            Delete
-          </td>
-          <td className=" dark:border-green-600 dark:bg-green-500 p-2 border-blue-500 bg-blue-400">
-            Up
-          </td>
-          <td className=" dark:border-green-600 dark:bg-green-500 p-2 border-blue-500 bg-blue-400">
-            Down
-          </td>
-        </tr>
+        {props.marks.map((element, index) => (
+          <Column id={index} data={element} key={index} />
+        ))}
       </tbody>
     </table>
   );

@@ -6,7 +6,8 @@ type Data = {
     p4: String,
     lat: String,
     long: String,
-    alt: String
+    alt: String,
+    frame: String
 }
 
 export default Data;
