@@ -24,7 +24,7 @@ const options = {
 };
 
 const Screen: React.FC = () => {
-  const [data, setData, pushData, getPath] = useData(DummyData);
+  const [data,  pushData, getPath, changeData] = useData(DummyData);
   
   const google_maps_api_key = config.REACT_APP_GOOGLE_MAPS_API_KEY;
   return (
@@ -55,6 +55,15 @@ const Screen: React.FC = () => {
             <Marker
               key={index}
               position={{ lat: Number(element.lat), lng: Number(element.long) }}
+              draggable={true}
+              onDragEnd={(e) => {
+                let gotData: Data = {
+                  ...element,
+                  lat: e.latLng.lat()?.toFixed(8).toString(),
+                  long: e.latLng.lng()?.toFixed(8).toString(),
+                };
+                changeData(index, gotData);
+              }}
             />
           ))}
         </GoogleMap>

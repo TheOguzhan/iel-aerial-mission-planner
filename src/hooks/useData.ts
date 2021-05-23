@@ -10,16 +10,21 @@ export default function useData(dataPassed: Array<Data>) {
     const getPath = useCallback((): Array<Path> => {
         let paths: Path[] = [];
 
+        // eslint-disable-next-line array-callback-return
         data.map((element) => {
-            let path: Path = {
-                lat: Number(element.lat),
-                lng: Number(element.long)
-            }
-            paths.push(path)
-        });
+                let path: Path = {
+                    lat: Number(element.lat),
+                    lng: Number(element.long)
+                };
+                paths.push(path);
+            });
         return paths;
     }, [data]);
 
-    return [data, setData, push, getPath] as const;
+    const changeData = useCallback((index: number, gotData: Data):void =>{
+        setData([...data.slice(0, index), gotData, ...data.slice(index+1, data.length)])
+    },[data])
+
+    return [data,  push, getPath, changeData] as const;
 }
 
