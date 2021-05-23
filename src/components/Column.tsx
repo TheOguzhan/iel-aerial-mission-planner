@@ -1,8 +1,10 @@
 import * as React from "react";
+import DummyData from "../data/dummyData";
+import useData from "../hooks/useData";
 
 
 export interface IColumnProps {
-  id: Number;
+  id: number;
   data: Data;
 }
 
@@ -114,6 +116,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
         border-blue-400 bg-blue-300 
           delay-100 duration-300 ease-in-out
         dark:hover:bg-green-300 hover:bg-blue-200"
+        
         >
           X
         </button>

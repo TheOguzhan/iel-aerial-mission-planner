@@ -2,8 +2,9 @@ import React from "react";
 import { GoogleMap, LoadScript, Marker, Polygon } from "@react-google-maps/api";
 import config from "../config";
 import Table from "../components/Table";
-import DummyData from "../data/dummyData";
 import useData from "../hooks/useData";
+import DummyData from "../data/dummyData";
+
 
 const center = {
   lat: 41.01202178051607,
@@ -24,8 +25,8 @@ const options = {
 };
 
 const Screen: React.FC = () => {
-  const [data,  pushData, getPath, changeData] = useData(DummyData);
-  
+  const [data, pushData, getPath, changeData, deleteData] = useData(DummyData);
+
   const google_maps_api_key = config.REACT_APP_GOOGLE_MAPS_API_KEY;
   return (
     <div>
@@ -56,7 +57,7 @@ const Screen: React.FC = () => {
               key={index}
               position={{ lat: Number(element.lat), lng: Number(element.long) }}
               draggable={true}
-              onDragEnd={(e) => {
+              onDrag={(e) => {
                 let gotData: Data = {
                   ...element,
                   lat: e.latLng.lat()?.toFixed(8).toString(),
