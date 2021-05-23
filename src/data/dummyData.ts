@@ -1,5 +1,4 @@
-import Data from "../@types/data";
-const DummyData: Data[] = [
+const DummyData: Array<Data> = [
     {
         command: "WAYPOINT",
         p1: "0.00000000",
