@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import useDeleteData from "../hooks/useDeleteData";
 
 
 export interface IColumnProps {
@@ -8,6 +8,7 @@ export interface IColumnProps {
 }
 
 const Column: React.FunctionComponent<IColumnProps> = (props) => {
+  const [removeData] = useDeleteData();
   return (
     <tr>
       <td
@@ -115,7 +116,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
         border-blue-400 bg-blue-300 
           delay-100 duration-300 ease-in-out
         dark:hover:bg-green-300 hover:bg-blue-200"
-        
+          onClick={(e)=>{removeData(props.data);}}
         >
           X
         </button>

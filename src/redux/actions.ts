@@ -1,4 +1,4 @@
-export type ACTION = {type: String, payload: Data, index?:number}
+export type ACTION = { type: String, payload: Data, index?: number }
 
 
 export const addData = (data: Data): ACTION => ({
@@ -6,7 +6,7 @@ export const addData = (data: Data): ACTION => ({
     payload: data
 })
 
-export const mutateData = (data: Data, index:number): ACTION => ({
+export const mutateData = (data: Data, index: number): ACTION => ({
     type: "MUTATE_DATA",
     payload: data,
     index
