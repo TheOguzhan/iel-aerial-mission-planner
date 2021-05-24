@@ -3,7 +3,6 @@ import { GoogleMap, LoadScript, Marker, Polygon } from "@react-google-maps/api";
 import config from "../config";
 import Table from "../components/Table";
 import useData from "../hooks/useData";
-import DummyData from "../data/dummyData";
 
 
 const center = {
@@ -25,8 +24,9 @@ const options = {
 };
 
 const Screen: React.FC = () => {
-  const [data, pushData, getPath, changeData, deleteData] = useData(DummyData);
-
+  const [data, pushData, getPath, changeData] = useData();
+  
+  
   const google_maps_api_key = config.REACT_APP_GOOGLE_MAPS_API_KEY;
   return (
     <div>

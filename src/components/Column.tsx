@@ -1,6 +1,5 @@
 import * as React from "react";
-import DummyData from "../data/dummyData";
-import useData from "../hooks/useData";
+
 
 
 export interface IColumnProps {

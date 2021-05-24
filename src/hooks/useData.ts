@@ -1,12 +1,18 @@
-import { useState, useCallback } from "react";
+import {useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addData, mutateData } from "../redux/actions";
+import { DataState } from "../redux/reducers";
 
+export default function useData() {
+    const data = useSelector<DataState, DataState["data"]>(
+        (state) => state.data
+    );
 
-export default function useData(dataPassed: Array<Data>) {
-    const [data, setData] = useState<Array<Data>>(dataPassed);
+    const dispatch = useDispatch();
 
-    const push = (gotData: Data) => {
-        setData([...data, gotData]);
-    }
+    const push = useCallback((passedData:Data):void => {
+        dispatch(addData(passedData))
+    },[dispatch]);
 
     const getPath = useCallback((): Array<Path> => {
         let paths: Path[] = [];
@@ -22,17 +28,18 @@ export default function useData(dataPassed: Array<Data>) {
         return paths;
     }, [data]);
 
-    const changeData = useCallback((index: number, gotData: Data): void => {
-        setData([...data.slice(0, index), gotData, ...data.slice(index + 1, data.length)])
+    const changeData = useCallback((index: number, passedData: Data): void => {
+        dispatch(mutateData(passedData, index));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data])
 
-    const deleteData = useCallback((index: number): void => {
-        let copyData: Array<Data> = Object.assign([], data);
-        copyData.splice(index, 1);
-        setData(copyData);
-        console.log(data);
-    }, [data])
+    //const deleteData = useCallback((index: number): void => {
+    //    let copyData: Array<Data> = Object.assign([], data);
+    //    console.log(copyData);
+    //    copyData.splice(index, 1);
+    //    setData(copyData);
+    //}, [data])
 
-    return [data, push, getPath, changeData, deleteData] as const;
+    return [data, push, getPath, changeData] as const;
 }
 
