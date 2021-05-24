@@ -16,3 +16,13 @@ export const removeData = (data: Data): ACTION => ({
     type: "REMOVE_DATA",
     payload: data
 })
+
+export const upData = (data: Data): ACTION => ({
+    type: "UP_DATA",
+    payload: data
+})
+
+export const downData = (data: Data): ACTION => ({
+    type: "DOWN_DATA",
+    payload: data
+})

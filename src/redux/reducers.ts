@@ -1,7 +1,7 @@
 import { ACTION } from "./actions";
-
+import array_move from "../utils/arrayMover";
 export interface DataState {
-    data: Data[]
+    data: Array<Data>
 }
 
 const initialState = {
@@ -28,6 +28,30 @@ export const dataReducer = (state: DataState = initialState, action: ACTION) => 
                 copyData.splice(index, 1);
             }
             return { ...state, data: [...copyData] };
+        }
+        case "UP_DATA": {
+            const old_index: number = state.data.indexOf(action.payload);
+            const new_index: number = old_index - 1;
+            if (new_index >= 0 && new_index < state.data.length) {
+                const copyData = Object.assign([], state.data);
+                const newData = array_move(copyData, old_index, new_index);
+                return { ...state, data: [...newData] }
+            }
+            else{
+                return {...state, data: state.data}
+            }
+        }
+        case "DOWN_DATA": {
+            const old_index: number = state.data.indexOf(action.payload);
+            const new_index: number = old_index + 1;
+            if (new_index >= 0 && new_index < state.data.length) {
+                const copyData = Object.assign([], state.data);
+                const newData = array_move(copyData, old_index, new_index);
+                return { ...state, data: [...newData] }
+            }
+            else {
+                return { ...state, data: state.data }
+            }
         }
         default:
             return state

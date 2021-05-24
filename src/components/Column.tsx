@@ -1,6 +1,6 @@
 import * as React from "react";
 import useDeleteData from "../hooks/useDeleteData";
-
+import useMoveData from "../hooks/useMoveData";
 
 export interface IColumnProps {
   id: number;
@@ -9,6 +9,7 @@ export interface IColumnProps {
 
 const Column: React.FunctionComponent<IColumnProps> = (props) => {
   const [removeData] = useDeleteData();
+  const [upTheData, downTheData] = useMoveData();
   return (
     <tr>
       <td
@@ -116,7 +117,9 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
         border-blue-400 bg-blue-300 
           delay-100 duration-300 ease-in-out
         dark:hover:bg-green-300 hover:bg-blue-200"
-          onClick={(e)=>{removeData(props.data);}}
+          onClick={(e) => {
+            removeData(props.data);
+          }}
         >
           X
         </button>
@@ -136,6 +139,9 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
         border-blue-400 bg-blue-300 
           delay-100 duration-300 ease-in-out
         dark:hover:bg-green-300 hover:bg-blue-200"
+          onClick={(e) => {
+            upTheData(props.data);
+          }}
         >
           Up
         </button>
@@ -155,6 +161,9 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
         border-blue-400 bg-blue-300 
           delay-100 duration-300 ease-in-out
         dark:hover:bg-green-300 hover:bg-blue-200"
+          onClick={(e) => {
+            downTheData(props.data);
+          }}
         >
           Down
         </button>

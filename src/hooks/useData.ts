@@ -13,8 +13,8 @@ export default function useData() {
         // eslint-disable-next-line array-callback-return
         data.map((element) => {
             let path: Path = {
-                lat: Number(element.lat),
-                lng: Number(element.long)
+                lat: Number(element?.lat),
+                lng: Number(element?.long)
             };
             paths.push(path);
         });

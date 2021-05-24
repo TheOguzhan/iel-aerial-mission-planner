@@ -1,5 +1,5 @@
 import React from "react";
-import { GoogleMap, LoadScript, Marker, Polygon } from "@react-google-maps/api";
+import { GoogleMap, LoadScript, Marker, Polyline } from "@react-google-maps/api";
 import config from "../config";
 import Table from "../components/Table";
 import useData from "../hooks/useData";
@@ -54,11 +54,14 @@ const Screen: React.FC = () => {
             pushData(gotData);
           }}
         >
-          <Polygon paths={getPath()} options={options} />
+          <Polyline path={getPath()} options={options} />
           {data.map((element, index) => (
             <Marker
               key={index}
-              position={{ lat: Number(element.lat), lng: Number(element.long) }}
+              position={{
+                lat: Number(element?.lat),
+                lng: Number(element?.long),
+              }}
               draggable={true}
               onDrag={(e) => {
                 let gotData: Data = {
