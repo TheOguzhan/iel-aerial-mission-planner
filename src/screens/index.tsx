@@ -1,11 +1,10 @@
 import React from "react";
-import { GoogleMap, LoadScript, Marker, Polyline } from "@react-google-maps/api";
+import { GoogleMap, LoadScript, Polyline } from "@react-google-maps/api";
 import config from "../config";
 import Table from "../components/Table";
 import useData from "../hooks/useData";
 import usePushData from "../hooks/usePushData";
-import useChangeData from "../hooks/useChangeData";
-
+import { AdvancedMarker } from "../components/AdvancedMarker";
 
 const center = {
   lat: 41.01202178051607,
@@ -14,10 +13,10 @@ const center = {
 
 const options = {
   fillColor: "transparent",
-  fillOpacity: 1,
-  strokeColor: "red",
+  fillOpacity: 0,
+  strokeColor: "black",
   strokeOpacity: 1,
-  strokeWeight: 2,
+  strokeWeight: 5,
   clickable: false,
   draggable: false,
   editable: false,
@@ -26,10 +25,9 @@ const options = {
 };
 
 const Screen: React.FC = () => {
-  const [data,  getPath] = useData();
+  const [data, getPath] = useData();
   const [pushData] = usePushData();
-  const [changeData] = useChangeData();
-  
+
   const google_maps_api_key = config.REACT_APP_GOOGLE_MAPS_API_KEY;
   return (
     <div>
@@ -56,22 +54,7 @@ const Screen: React.FC = () => {
         >
           <Polyline path={getPath()} options={options} />
           {data.map((element, index) => (
-            <Marker
-              key={index}
-              position={{
-                lat: Number(element?.lat),
-                lng: Number(element?.long),
-              }}
-              draggable={true}
-              onDrag={(e) => {
-                let gotData: Data = {
-                  ...element,
-                  lat: e.latLng.lat()?.toFixed(8).toString(),
-                  long: e.latLng.lng()?.toFixed(8).toString(),
-                };
-                changeData(index, gotData);
-              }}
-            />
+            <AdvancedMarker element={element} index={index} key={index} />
           ))}
         </GoogleMap>
       </LoadScript>

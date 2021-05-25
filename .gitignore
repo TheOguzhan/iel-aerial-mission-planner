@@ -27,3 +27,6 @@ yarn-error.log*
 src/config
 
 /waypoints
+
+# you can create index.css by running npm run tailwind:css
+index.css
