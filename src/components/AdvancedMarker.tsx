@@ -29,7 +29,7 @@ export function AdvancedMarker(props: IAdvancedMarkerProps) {
   const nextOptions = {
     fillColor: "transparent",
     fillOpacity: 0,
-    strokeColor: "blue",
+    strokeColor: "green",
     strokeOpacity: 1,
     strokeWeight: 3,
     clickable: false,
@@ -88,7 +88,9 @@ export function AdvancedMarker(props: IAdvancedMarkerProps) {
                 </h1>
               ) : null}
               {nextDistance !== 0 ? (
-                <h1 style={{ color: "blue" }}>{nextDistance} m to next node</h1>
+                <h1 style={{ color: "green" }}>
+                  {nextDistance} m to next node
+                </h1>
               ) : null}
             </div>
           </InfoWindow>
