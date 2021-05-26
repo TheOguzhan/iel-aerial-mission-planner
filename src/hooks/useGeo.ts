@@ -8,8 +8,8 @@ export default function useGeo(passedData: Data) {
         (state) => state.data
     );
     const passedDataIndex = data.indexOf(passedData);
-    const [previousDistance, setPreviousDistance] = useState<Number>(0);
-    const [nextDistance, setNextDistance] = useState<Number>(0);
+    const [previousDistance, setPreviousDistance] = useState<number>(0);
+    const [nextDistance, setNextDistance] = useState<number>(0);
     const [previousNodePath, setPreviousNodePath] = useState<Array<Path>>([{ lat: Number(passedData.lat), lng: Number(passedData.long) }]);
     const [nextNodePath, setNextNodePath] = useState<Array<Path>>([{ lat: Number(passedData.lat), lng: Number(passedData.long) }]);
     const distanceFromPreviousNode = useCallback(() => {
@@ -26,7 +26,7 @@ export default function useGeo(passedData: Data) {
                 lat: Number(passedData?.lat),
                 lng: Number(passedData?.long)
             }]);
-            let distanceInMeter: Number = getDistance({
+            let distanceInMeter: number = getDistance({
                 latitude: Number(previousNode?.lat),
                 longitude: Number(previousNode?.long)
             },
@@ -66,22 +66,38 @@ export default function useGeo(passedData: Data) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
 
+    //const radians_to_degree = (radians: number): number => {
+    //    return radians * (180 / Math.PI)
+    //}
+    ///**
+    // * @function
+    // * 
+    // * @name calculate_degree_from_three_side
+    // * @param {number} a - Length of the "a" side in meters
+    // * @param {number} b -  Length of the "b" side in meters
+    // * @param {number} c -  Length of the "c" side in meters
+    // * 
+    // * @returns {number} - size of alpha angle in degree
+    // * 
+    // */
+    //const calculate_degree_from_three_side = (a: number, b: number, c: number): number => {
+    //    const Angle: number = (a ** 2 - b ** 2 - c ** 2) / (-2 * b * c);
+    //    return radians_to_degree(Math.acos(Angle));
+    //}
+
     useEffect(() => {
         //let nextNode: Data = data[passedDataIndex + 1];
         //let previousNode: Data = data[passedDataIndex - 1];
         //if (nextNode && previousNode) {
-        //    console.log(getDistance({
+        //    const other_side: number = getDistance({
         //        latitude: Number(previousNode?.lat),
         //        longitude: Number(previousNode?.long)
         //    }, {
         //        latitude: Number(nextNode.lat),
         //        longitude: Number(nextNode.long)
-        //    }));
-        //}
-        //if (previousDistance !== 0 && nextDistance !== 0) {
-        //    
-        //    console.log(`previous node distance: ${previousDistance}`);
-        //    console.log(`next node distance: ${nextDistance}`);
+        //    });
+        //
+        //    setAngle(calculate_degree_from_three_side(other_side, nextDistance, previousDistance));
         //}
         distanceFromPreviousNode();
         distanceToNextNode();

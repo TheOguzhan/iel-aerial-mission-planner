@@ -1,6 +1,7 @@
 import * as React from "react";
 import useDeleteData from "../hooks/useDeleteData";
 import useMoveData from "../hooks/useMoveData";
+import DoubleClickInput from "./DoubleClickInput";
 
 export interface IColumnProps {
   id: number;
@@ -167,6 +168,9 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
         >
           Down
         </button>
+      </td>
+      <td>
+      <DoubleClickInput data={props.data} val={props.data.command} />
       </td>
     </tr>
   );
