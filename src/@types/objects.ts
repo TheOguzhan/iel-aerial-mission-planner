@@ -1,9 +1,9 @@
-const FrameObject = {
-    relative: 3,
-    absolute: 0,
-    terrain: 10
+const FrameObject: FrameObjectType = {
+    RELATIVE: 3,
+    ABSOLUTE: 0,
+    TERRAIN: 10
 };
 
-export{
+export {
     FrameObject
 };

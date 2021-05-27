@@ -10,6 +10,12 @@ type Data = {
     frame:      String
 }
 
+type FrameObjectType = {
+    [TERRAIN: String]: Number,
+    [ABSOLUTE: String]: Number,
+    [RELATIVE: String]: Number
+}
+
 type Center = {
     lat: Number,
     lng: Number

@@ -46,8 +46,8 @@ const Screen: React.FC = () => {
               p4: "0.00000000",
               lat: e.latLng.lat()?.toFixed(8).toString(),
               long: e.latLng.lng()?.toFixed(8).toString(),
-              alt: "100.0",
-              frame: "3",
+              alt: "100.000000",
+              frame: "RELATIVE",
             };
             pushData(gotData);
           }}
