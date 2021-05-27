@@ -15,19 +15,25 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
   const [removeData] = useDeleteData();
   const [upTheData, downTheData] = useMoveData();
   const [lat, setLat] = useState<string>(props.data.lat.toString());
+  const [lng, setLng] = useState<string>(props.data.long.toString());
   useEffect(() => {
     let gotData: Data = {
       ...props.data,
+      long: lng,
       lat,
     };
     changeData(props.id, gotData);
-  }, [lat]);
+  }, [lat, lng]);
+  useEffect(()=>{
+    setLat(props.data.lat.toString());
+    setLng(props.data.long.toString());
+  }, [props.data])
   return (
     <tr>
       <td
         className="
         text-center
-        p-2
+        p-2 h-12
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
@@ -36,7 +42,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
       <td
         className="
         text-center
-        p-2
+        p-2 h-12
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
@@ -45,7 +51,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
       <td
         className="
         text-center
-        p-2
+        p-2 h-12
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
@@ -54,7 +60,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
       <td
         className="
         text-center
-        p-2
+        p-2 h-12
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
@@ -63,7 +69,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
       <td
         className="
         text-center
-        p-2
+        p-2 h-12
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
@@ -72,7 +78,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
       <td
         className="
         text-center
-        p-2
+        p-2 h-12
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
@@ -81,12 +87,12 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
       <td
         className="
         text-center
-        p-2
+        p-2 h-12
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
         <DoubleClickInput
-          disabled={false}
+          fixValues={() => setLat(String(Number(lat).toFixed(8)))}
           val={lat}
           onChange={(e: React.FormEvent<HTMLInputElement>): void => {
             setLat(e.currentTarget.value);
@@ -96,16 +102,22 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
       <td
         className="
         text-center
-        p-2
+        p-2 h-12
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
-        {props.data.long}
+        <DoubleClickInput
+          fixValues={() => setLng(String(Number(lng).toFixed(8)))}
+          val={lng}
+          onChange={(e: React.FormEvent<HTMLInputElement>): void => {
+            setLng(e.currentTarget.value);
+          }}
+        />
       </td>
       <td
         className="
         text-center
-        p-2
+        p-2 h-12
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
@@ -114,7 +126,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
       <td
         className="
         text-center
-        p-2
+        p-2 h-12
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
@@ -123,7 +135,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
       <td
         className="
         text-center
-        p-2
+        p-2 h-12
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
@@ -145,7 +157,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
       <td
         className="
         text-center
-        p-2
+        p-2 h-12
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
@@ -167,7 +179,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
       <td
         className="
         text-center
-        p-2
+        p-2 h-12
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
