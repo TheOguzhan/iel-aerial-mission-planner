@@ -1,4 +1,6 @@
-import * as React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from "react";
+import useChangeData from "../hooks/useChangeData";
 import useDeleteData from "../hooks/useDeleteData";
 import useMoveData from "../hooks/useMoveData";
 import DoubleClickInput from "./DoubleClickInput";
@@ -9,8 +11,17 @@ export interface IColumnProps {
 }
 
 const Column: React.FunctionComponent<IColumnProps> = (props) => {
+  const [changeData] = useChangeData();
   const [removeData] = useDeleteData();
   const [upTheData, downTheData] = useMoveData();
+  const [lat, setLat] = useState<string>(props.data.lat.toString());
+  useEffect(() => {
+    let gotData: Data = {
+      ...props.data,
+      lat,
+    };
+    changeData(props.id, gotData);
+  }, [lat]);
   return (
     <tr>
       <td
@@ -74,7 +85,13 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
-        {props.data.lat}
+        <DoubleClickInput
+          disabled={false}
+          val={lat}
+          onChange={(e: React.FormEvent<HTMLInputElement>): void => {
+            setLat(e.currentTarget.value);
+          }}
+        />
       </td>
       <td
         className="
@@ -168,9 +185,6 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
         >
           Down
         </button>
-      </td>
-      <td>
-      <DoubleClickInput data={props.data} val={props.data.command} />
       </td>
     </tr>
   );
