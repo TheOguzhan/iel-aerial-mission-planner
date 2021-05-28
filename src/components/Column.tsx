@@ -4,7 +4,8 @@ import useChangeData from "../hooks/useChangeData";
 import useDeleteData from "../hooks/useDeleteData";
 import useMoveData from "../hooks/useMoveData";
 import DoubleClickInput from "./DoubleClickInput";
-import { FrameObject } from "../@types/objects";
+import { FrameArray } from "../@types/objects";
+import { DoubleClickSelect } from "./DoubleClickSelect";
 
 export interface IColumnProps {
   id: number;
@@ -19,21 +20,21 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
   const [lng, setLng] = useState<string>(props.data.long.toString());
   const [alt, setAlt] = useState<string>(props.data.alt.toString());
   const [frameType, setFrameType] = useState<String>(props.data.frame);
-
-  console.log(FrameObject[frameType as keyof FrameObjectType]);
   useEffect(() => {
     let gotData: Data = {
       ...props.data,
       long: lng,
       lat,
       alt,
+      frame: frameType
     };
     changeData(props.id, gotData);
-  }, [lat, lng, alt]);
+  }, [lat, lng, alt, frameType]);
   useEffect(() => {
     setLat(props.data.lat.toString());
     setLng(props.data.long.toString());
     setAlt(props.data.alt.toString());
+    setFrameType(props.data.frame);
   }, [props.data]);
   return (
     <tr>
@@ -143,7 +144,13 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
-        {props.data.frame}
+        <DoubleClickSelect
+          options={FrameArray}
+          val={props.data.frame}
+          onChange={(element:String) => {
+            setFrameType(element);
+          }}
+        />
       </td>
       <td
         className="

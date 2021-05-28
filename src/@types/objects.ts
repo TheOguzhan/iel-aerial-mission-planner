@@ -4,6 +4,9 @@ const FrameObject: FrameObjectType = {
     TERRAIN: 10
 };
 
+const FrameArray = ["RELATIVE", "ABSOLUTE", "TERRAIN"];
+
 export {
-    FrameObject
+    FrameObject,
+    FrameArray
 };

@@ -19,10 +19,10 @@ const DoubleClickInput: React.FunctionComponent<DoubleClickInputProps> = (
       <input
         style={{ display: edit && !props.disabled ? "block" : "none" }}
         className="border rounded-lg
-        py-2 px-2 
-        text-black 
-        focus:ring-gray-400 focus:ring-2
-        w-28"
+        p-2  w-28
+        dark:border-green-600 dark:bg-green-500
+      border-blue-500 bg-blue-400
+      dark:text-white text-dark"
         value={props.val}
         onChange={props.onChange}
         onBlur={(e) => {
@@ -39,7 +39,7 @@ const DoubleClickInput: React.FunctionComponent<DoubleClickInputProps> = (
 };
 
 DoubleClickInput.defaultProps = {
-  disabled: false
-}
+  disabled: false,
+};
 
 export default DoubleClickInput;

@@ -37,7 +37,7 @@ const Table: React.FunctionComponent<ITableProps> = (props) => {
           <th className="w-32 dark:border-green-600 dark:bg-green-600 p-2 border-blue-500 bg-blue-500">
             Alt
           </th>
-          <th className="w-16 dark:border-green-600 dark:bg-green-600 p-2 border-blue-500 bg-blue-500">
+          <th className="w-32 dark:border-green-600 dark:bg-green-600 p-2 border-blue-500 bg-blue-500">
             Frame
           </th>
           <th className="w-16 dark:border-green-600 dark:bg-green-600 p-2 border-blue-500 bg-blue-500">
