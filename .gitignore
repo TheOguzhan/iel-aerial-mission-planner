@@ -28,5 +28,3 @@ src/config
 
 /waypoints
 
-# you can create index.css by running npm run tailwind:css
-src/index.css
