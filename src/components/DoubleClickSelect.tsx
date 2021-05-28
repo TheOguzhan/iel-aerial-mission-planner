@@ -53,6 +53,7 @@ export const DoubleClickSelect: React.FunctionComponent<IDoubleClickSelectProps>
                   props.onChange(element);
                   setEdit(false);
                 }}
+                key={index}
               >
                 <div className="flex items-items">
                   <span className="text-black text-font-normal ml-3 block truncate text-center">
