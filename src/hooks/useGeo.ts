@@ -66,39 +66,9 @@ export default function useGeo(passedData: Data) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
 
-    //const radians_to_degree = (radians: number): number => {
-    //    return radians * (180 / Math.PI)
-    //}
-    ///**
-    // * @function
-    // * 
-    // * @name calculate_degree_from_three_side
-    // * @param {number} a - Length of the "a" side in meters
-    // * @param {number} b -  Length of the "b" side in meters
-    // * @param {number} c -  Length of the "c" side in meters
-    // * 
-    // * @returns {number} - size of alpha angle in degree
-    // * 
-    // */
-    //const calculate_degree_from_three_side = (a: number, b: number, c: number): number => {
-    //    const Angle: number = (a ** 2 - b ** 2 - c ** 2) / (-2 * b * c);
-    //    return radians_to_degree(Math.acos(Angle));
-    //}
+
 
     useEffect(() => {
-        //let nextNode: Data = data[passedDataIndex + 1];
-        //let previousNode: Data = data[passedDataIndex - 1];
-        //if (nextNode && previousNode) {
-        //    const other_side: number = getDistance({
-        //        latitude: Number(previousNode?.lat),
-        //        longitude: Number(previousNode?.long)
-        //    }, {
-        //        latitude: Number(nextNode.lat),
-        //        longitude: Number(nextNode.long)
-        //    });
-        //
-        //    setAngle(calculate_degree_from_three_side(other_side, nextDistance, previousDistance));
-        //}
         distanceFromPreviousNode();
         distanceToNextNode();
         // eslint-disable-next-line react-hooks/exhaustive-deps
