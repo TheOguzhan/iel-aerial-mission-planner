@@ -23,6 +23,7 @@ const DoubleClickInput: React.FunctionComponent<DoubleClickInputProps> = (
         dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400
       dark:text-white text-dark"
+        id={`input-${props.val}`}
         value={props.val}
         onChange={props.onChange}
         onBlur={(e) => {
