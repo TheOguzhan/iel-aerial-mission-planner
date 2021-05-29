@@ -13,10 +13,14 @@ const DoubleClickInput: React.FunctionComponent<DoubleClickInputProps> = (
   const [edit, setEdit] = React.useState<boolean>(false);
   return (
     <>
-      <div style={{ display: !edit || props.disabled ? "block" : "none" }}>
-        <h2 onDoubleClick={(e) => setEdit(true)}>{props.val}</h2>
+      <div
+        data-testid="val-displayer"
+        style={{ display: !edit || props.disabled ? "block" : "none" }}
+      >
+        <h2 onDoubleClick={(e) => setEdit(true)} data-testid="doubleClicker">{props.val}</h2>
       </div>
       <input
+        data-testid="val-input"
         style={{ display: edit && !props.disabled ? "block" : "none" }}
         className="border rounded-lg
         p-2  w-28
