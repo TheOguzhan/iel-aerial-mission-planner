@@ -20,10 +20,6 @@ describe("Double click select", () => {
     expect(main).not.toBeVisible();
     expect(optionsElements[0]).not.toBeVisible();
   });
-  test("should show main and elements", () => {
-    fireEvent.click(displayer);
-    expect(main).toBeVisible();
-  });
   test("should match snapshots", () => {
     const tree = renderer.create(
       <DoubleClickSelect options={options} val={val} onChange={onChange} />
