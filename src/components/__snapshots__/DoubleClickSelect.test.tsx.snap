@@ -16,10 +16,7 @@ Array [
   <ul
     aria-activedescendant="listbox-option-3"
     aria-labelledby="listbox-label"
-    className="absolute z-10 mt-1 w-28 mx-auto
- bg-white shadow-lg max-h-56 rounded-md 
- py-1 text-base ring-1 ring-black ring-opacity-5 
- overflow-auto focus:outline-none sm:text-sm"
+    className="absolute z-10 mt-1 w-28 mx-auto bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
     data-testid="main-select"
     onBlur={[Function]}
     role="listbox"

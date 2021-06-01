@@ -23,10 +23,7 @@ export const DoubleClickSelect: React.FunctionComponent<IDoubleClickSelectProps>
           </span>
         </div>
         <ul
-          className="absolute z-10 mt-1 w-28 mx-auto
-       bg-white shadow-lg max-h-56 rounded-md 
-       py-1 text-base ring-1 ring-black ring-opacity-5 
-       overflow-auto focus:outline-none sm:text-sm"
+          className="absolute z-10 mt-1 w-28 mx-auto bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
           tabIndex={-1}
           role="listbox"
           aria-labelledby="listbox-label"
