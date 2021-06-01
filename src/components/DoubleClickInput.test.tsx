@@ -81,6 +81,6 @@ test("matches snapshots", () => {
         console.log("Values fixed");
       }}
     />
-  );
+  ).toJSON();
   expect(tree).toMatchSnapshot();
 });

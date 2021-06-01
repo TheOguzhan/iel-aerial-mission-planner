@@ -23,7 +23,7 @@ describe("Double click select", () => {
   test("should match snapshots", () => {
     const tree = renderer.create(
       <DoubleClickSelect options={options} val={val} onChange={onChange} />
-    );
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
