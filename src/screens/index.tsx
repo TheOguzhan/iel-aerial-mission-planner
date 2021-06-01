@@ -1,6 +1,5 @@
 import React from "react";
 import { GoogleMap, LoadScript, Polyline } from "@react-google-maps/api";
-import config from "../config";
 import Table from "../components/Table";
 import useData from "../hooks/useData";
 import usePushData from "../hooks/usePushData";
@@ -28,7 +27,7 @@ const Screen: React.FC = () => {
   const [data, getPath] = useData();
   const [pushData] = usePushData();
 
-  const google_maps_api_key = config.REACT_APP_GOOGLE_MAPS_API_KEY;
+  const google_maps_api_key :string = (process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string);
   return (
     <div>
       <LoadScript googleMapsApiKey={google_maps_api_key}>
