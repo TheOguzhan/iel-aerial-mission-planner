@@ -41,9 +41,6 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-
-      - shell: bash
-        env:
-          REACT_APP_GOOGLE_MAPS_API_KEY: ${{secrets.REACT_APP_GOOGLE_MAPS_API_KEY}}
-        run: |
-          REACT_APP_GOOGLE_MAPS_API_KEY=$REACT_APP_GOOGLE_MAPS_API_KEY npm run build
+      - name: Build the code
+        run: 
+          REACT_APP_GOOGLE_MAPS_API_KEY=${{secrets.REACT_APP_GOOGLE_MAPS_API_KEY}} npm run build
