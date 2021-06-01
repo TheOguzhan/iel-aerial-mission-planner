@@ -4,7 +4,7 @@ import useChangeData from "../hooks/useChangeData";
 import useDeleteData from "../hooks/useDeleteData";
 import useMoveData from "../hooks/useMoveData";
 import DoubleClickInput from "./DoubleClickInput";
-import { FrameArray } from "../@types/objects";
+import { FrameArray } from "../objects/objects";
 import { DoubleClickSelect } from "./DoubleClickSelect";
 
 export interface IColumnProps {

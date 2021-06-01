@@ -13,13 +13,11 @@ export const DoubleClickSelect: React.FunctionComponent<IDoubleClickSelectProps>
     const [edit, setEdit] = React.useState<boolean>(false);
     return (
       <>
-        <div
-          className="mt-1 mx-auto relative"
-          
-        >
+        <div className="mt-1 mx-auto relative">
           <span
             className="flex items-center text-center select-none cursor-pointer dark:text-white text-black"
             onClick={(e) => setEdit(!edit)}
+            data-testid="val-displayer"
           >
             {select}
           </span>
@@ -37,6 +35,7 @@ export const DoubleClickSelect: React.FunctionComponent<IDoubleClickSelectProps>
           onBlur={(e) => {
             setEdit(false);
           }}
+          data-testid="main-select"
         >
           {props.options.map((element, index) => {
             return (
@@ -54,6 +53,7 @@ export const DoubleClickSelect: React.FunctionComponent<IDoubleClickSelectProps>
                   setEdit(false);
                 }}
                 key={index}
+                data-testid="option"
               >
                 <div className="flex items-items">
                   <span className="text-black text-font-normal ml-3 block truncate text-center">
