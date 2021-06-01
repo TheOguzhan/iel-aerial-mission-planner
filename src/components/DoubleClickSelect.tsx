@@ -37,10 +37,7 @@ export const DoubleClickSelect: React.FunctionComponent<IDoubleClickSelectProps>
           {props.options.map((element, index) => {
             return (
               <li
-                className="text-gray-900 cursor-pointer select-none 
-              relative py-2 pl-2 pr-2
-              hover:bg-gray-200 
-              "
+                className="text-gray-900 cursor-pointer select-none relative py-2 pl-2 pr-2 hover:bg-gray-200"
                 id={`list-box-option-${index}`}
                 role="option"
                 aria-selected={select === element}

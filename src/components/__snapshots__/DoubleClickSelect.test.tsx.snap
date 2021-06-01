@@ -29,10 +29,7 @@ Array [
   >
     <li
       aria-selected={true}
-      className="text-gray-900 cursor-pointer select-none 
- relative py-2 pl-2 pr-2
- hover:bg-gray-200 
- "
+      className="text-gray-900 cursor-pointer select-none relative py-2 pl-2 pr-2 hover:bg-gray-200"
       data-testid="option"
       id="list-box-option-0"
       onClick={[Function]}
@@ -50,10 +47,7 @@ Array [
     </li>
     <li
       aria-selected={false}
-      className="text-gray-900 cursor-pointer select-none 
- relative py-2 pl-2 pr-2
- hover:bg-gray-200 
- "
+      className="text-gray-900 cursor-pointer select-none relative py-2 pl-2 pr-2 hover:bg-gray-200"
       data-testid="option"
       id="list-box-option-1"
       onClick={[Function]}
@@ -71,10 +65,7 @@ Array [
     </li>
     <li
       aria-selected={false}
-      className="text-gray-900 cursor-pointer select-none 
- relative py-2 pl-2 pr-2
- hover:bg-gray-200 
- "
+      className="text-gray-900 cursor-pointer select-none relative py-2 pl-2 pr-2 hover:bg-gray-200"
       data-testid="option"
       id="list-box-option-2"
       onClick={[Function]}
