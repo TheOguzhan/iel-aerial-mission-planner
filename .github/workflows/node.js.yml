@@ -5,15 +5,15 @@ name: Node.js CI
 
 on:
   push:
-    branches: 
-    - main
-    - develop 
+    branches:
+      - main
+      - develop
   pull_request:
-    branches: 
-    - main 
-    - develop
+    branches:
+      - main
+      - develop
   schedule:
-  - cron: "0 2 * * 1-5"
+    - cron: "0 2 * * 1-5"
   workflow_dispatch:
 
 jobs:
@@ -25,18 +25,15 @@ jobs:
         node_version: [15.x]
         os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
-      - shell: bash
-        env:
-          REACT_APP_GOOGLE_MAPS_API_KEY: ${{secrets.REACT_APP_GOOGLE_MAPS_API_KEY}}
       - uses: actions/checkout@v1
       - name: Use Node.js ${{matrix.node_version}}
         uses: actions/setup-node@v1
         with:
           node-version: ${{matrix.node_version}}
-          
+
       - name: install dependencies
         run: npm install
-        
+
       - name: Run the tests and generate coverage report
         run: npm run test -- --coverage
 
@@ -44,6 +41,9 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          
-      - name: build the code
-        run:  REACT_APP_GOOGLE_MAPS_API_KEY=$REACT_APP_GOOGLE_MAPS_API_KEY npm run build
+
+      - shell: bash
+        env:
+          REACT_APP_GOOGLE_MAPS_API_KEY: ${{secrets.REACT_APP_GOOGLE_MAPS_API_KEY}}
+        run: |
+          REACT_APP_GOOGLE_MAPS_API_KEY=$REACT_APP_GOOGLE_MAPS_API_KEY npm run build
