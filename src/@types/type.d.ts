@@ -16,6 +16,21 @@ type FrameObjectType = {
     [RELATIVE: String]: Number
 }
 
+type CommandType = {
+    Command: String,
+    p1: Boolean,
+    p2: Boolean,
+    p3: Boolean,
+    p4: Boolean,
+    p1Name: String |undefined,
+    p2Name: String | undefined,
+    p3Name: String | undefined,
+    p4Name: String | undefined,
+    latRequired: Boolean,
+    longRequired: Boolean,
+    
+}
+
 type Center = {
     lat: Number,
     lng: Number
