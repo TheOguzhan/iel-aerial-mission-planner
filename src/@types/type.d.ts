@@ -11,9 +11,13 @@ type Data = {
 }
 
 type FrameObjectType = {
-    [TERRAIN: String]: Number,
-    [ABSOLUTE: String]: Number,
-    [RELATIVE: String]: Number
+    [TERRAIN : String]: Number,
+    [ABSOLUTE : String]: Number,
+    [RELATIVE : String]: Number
+}
+
+type CommandObject = {
+    [Command: String]: CommandType
 }
 
 type CommandType = {
@@ -36,7 +40,9 @@ type CommandType = {
     latPayload?: String = Number(0).toFixed(8),
     longPayload?: String = Number(0).toFixed(8),
     altPayload?: String = Number(100).toFixed(8),
-    payload: Number
+    payload: Number,
+    shown?: Boolean = true,
+    spline?: Boolean = false,
 }
 
 type Center = {

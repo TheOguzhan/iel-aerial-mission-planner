@@ -26,8 +26,8 @@ const options = {
 const Screen: React.FC = () => {
   const [data, getPath] = useData();
   const [pushData] = usePushData();
-
-  const google_maps_api_key :string = (process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string);
+  const google_maps_api_key: string = process.env
+    .REACT_APP_GOOGLE_MAPS_API_KEY as string;
   return (
     <div>
       <LoadScript googleMapsApiKey={google_maps_api_key}>

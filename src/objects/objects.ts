@@ -49,7 +49,7 @@ const WAYPOINT_COMMAND: CommandType = {
     latRequired: true,
     longRequired: true,
     altRequired: true,
-    payload: 16
+    payload: 16,
 }
 
 const HOME_COMMAND: CommandType = {
@@ -58,27 +58,40 @@ const HOME_COMMAND: CommandType = {
     p2: false,
     p3: false,
     p4: false,
-    p1Name: "Delay",
     latRequired: true,
     longRequired: true,
     altRequired: true,
     payload: 16,
-    p1Payload: Number(0).toFixed(6),
-    p2Payload: Number(0).toFixed(6),
-    p3Payload: Number(0).toFixed(6),
-    p4Payload: Number(0).toFixed(6),
+    p1Payload: "0",
+    p2Payload: "0",
+    p3Payload: "0",
+    p4Payload: "0",
+}
+
+const SPLINE_WAYPOINT: CommandType = {
+    Command: "SPLINE_WAYPOINT",
+    p1: true,
+    p2: false,
+    p3: false,
+    p4: false,
+    latRequired: true,
+    longRequired: true,
+    altRequired: true,
+    payload: 82,
+    spline: true
 }
 
 
 
-const COMMAND_TYPE_ARRAY: Array<CommandType> = [
-    WAYPOINT_COMMAND,
-    HOME_COMMAND
+const COMMAND_TYPE_OBJECT_ARRAY: Array<CommandObject> = [
+    {"WAYPOINT" : WAYPOINT_COMMAND},
+    {"HOME": HOME_COMMAND},
+    {"SPLINE_WAYPOINT":SPLINE_WAYPOINT}
 ]
 
 export {
     FrameObject,
     FrameArray,
     CommandArray,
-    COMMAND_TYPE_ARRAY
+    COMMAND_TYPE_OBJECT_ARRAY
 };
