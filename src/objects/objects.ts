@@ -46,26 +46,16 @@ const WAYPOINT_COMMAND: CommandType = {
     p3: false,
     p4: false,
     p1Name: "Delay",
-    latRequired: true,
-    longRequired: true,
-    altRequired: true,
     payload: 16,
 }
 
 const HOME_COMMAND: CommandType = {
     Command: "HOME_POINT",
-    p1: true,
+    p1: false,
     p2: false,
     p3: false,
     p4: false,
-    latRequired: true,
-    longRequired: true,
-    altRequired: true,
     payload: 16,
-    p1Payload: "0",
-    p2Payload: "0",
-    p3Payload: "0",
-    p4Payload: "0",
 }
 
 const SPLINE_WAYPOINT: CommandType = {
@@ -74,19 +64,61 @@ const SPLINE_WAYPOINT: CommandType = {
     p2: false,
     p3: false,
     p4: false,
-    latRequired: true,
-    longRequired: true,
-    altRequired: true,
     payload: 82,
     spline: true
 }
 
+const LOITER_TURNS: CommandType = {
+    Command: "LOITER_TURNS",
+    p1: true,
+    p2: false,
+    p3: true,
+    p4: false,
+    payload: 18,
+    p1Name: "Turns",
+    p3Name: "Radius",
+}
 
+const LOITER_TIME: CommandType = {
+    Command: "LOITER_TIME",
+    p1: true,
+    p2: false,
+    p3: false,
+    p4: false,
+    p1Name: "Delay",
+    payload: 19
+}
+
+const LOITER_UNLIM: CommandType = {
+    Command: "LOITER_UNLIM",
+    p1: false,
+    p2: false,
+    p3: false,
+    p4: false,
+    payload: 17
+}
+
+const RETURN_TO_LAUNCH: CommandType = {
+    Command: "RETURN_TO_LAUNCH",
+    p1: false,
+    p2: false,
+    p3: false,
+    p4: false,
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 20
+}
 
 const COMMAND_TYPE_OBJECT_ARRAY: Array<CommandObject> = [
-    {"WAYPOINT" : WAYPOINT_COMMAND},
-    {"HOME": HOME_COMMAND},
-    {"SPLINE_WAYPOINT":SPLINE_WAYPOINT}
+    { "WAYPOINT": WAYPOINT_COMMAND },
+    { "HOME": HOME_COMMAND },
+    { "SPLINE_WAYPOINT": SPLINE_WAYPOINT },
+    { "LOITER_TURNS": LOITER_TURNS },
+    { "LOITER_TIME": LOITER_TIME },
+    { "LOITER_UNLIM": LOITER_UNLIM },
+    { "RETURN_TO_LAUNCH": RETURN_TO_LAUNCH}
 ]
 
 export {
