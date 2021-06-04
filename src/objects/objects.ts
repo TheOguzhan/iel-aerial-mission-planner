@@ -111,6 +111,54 @@ const RETURN_TO_LAUNCH: CommandType = {
     payload: 20
 }
 
+const TAKEOFF: CommandType = {
+    Command: "TAKEOFF",
+    p1: false,
+    p2: false,
+    p3: false,
+    p4: false,
+    latRequired: false,
+    longRequired: false,
+    shown: false,
+    payload: 22
+}
+
+
+const LAND: CommandType = {
+    Command: "LAND",
+    p1: false,
+    p2: false,
+    p3: false,
+    p4: false,
+    payload: 21
+}
+
+const DELAY: CommandType = {
+    Command: "DELAY",
+    p1: true,
+    p2: true,
+    p3: true,
+    p4: true,
+    p1Name: "Seconds (or -1)",
+    p2Name: "Hour UTC",
+    p3Name: "Minute UTC",
+    p4Name: "Second UTC",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    payload: 93
+}
+
+const GUIDED_ENABLE: CommandType = {
+    Command: "GUIDED_ENABLE",
+    p1: true,
+    p2: false,
+    p3: false,
+    p4: false,
+    p1Name: "on=1/off=0",
+    payload: 92
+}
+
 const COMMAND_TYPE_OBJECT_ARRAY: Array<CommandObject> = [
     { "WAYPOINT": WAYPOINT_COMMAND },
     { "HOME": HOME_COMMAND },
@@ -118,7 +166,11 @@ const COMMAND_TYPE_OBJECT_ARRAY: Array<CommandObject> = [
     { "LOITER_TURNS": LOITER_TURNS },
     { "LOITER_TIME": LOITER_TIME },
     { "LOITER_UNLIM": LOITER_UNLIM },
-    { "RETURN_TO_LAUNCH": RETURN_TO_LAUNCH}
+    { "RETURN_TO_LAUNCH": RETURN_TO_LAUNCH },
+    { "TAKEOFF": TAKEOFF },
+    { "LAND": LAND },
+    { "DELAY": DELAY},
+    { "GUIDED_ENABLE": GUIDED_ENABLE }
 ]
 
 export {
