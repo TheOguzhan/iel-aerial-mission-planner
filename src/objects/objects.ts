@@ -159,6 +159,56 @@ const GUIDED_ENABLE: CommandType = {
     payload: 92
 }
 
+const PAYLOAD_PLACE: CommandType = {
+    Command: "PAYLOAD_PLACE",
+    p1: true,
+    p2: false,
+    p3: false,
+    p4: false,
+    p1Name: "max decent",
+    payload: 94
+}
+
+const DO_GUIDED_LIMITS: CommandType = {
+    Command: "DO_GUIDED_LIMITS",
+    p1: true,
+    p2: true,
+    p3: true,
+    p4: true,
+    p1Name: "timeout S",
+    p2Name: "min alt",
+    p3Name: "max alt",
+    p4Name: "max dist",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 222
+}
+
+const DO_WINCH: CommandType = {
+    Command: "DO_WINCH",
+    p1: true,
+    p2: true,
+    p3: true,
+    p4: true,
+    p1Name: "winch no",
+    p2Name: "action",
+    p3Name: "length",
+    p4Name: "rate",
+    isolated: true,
+    payload: 42600
+}
+
+const DO_SET_ROI: CommandType = {
+    Command: "DO_SET_ROI",
+    p1: false,
+    p2: false,
+    p3: false,
+    p4: false,
+    payload: 201,
+}
+
 const COMMAND_TYPE_OBJECT_ARRAY: Array<CommandObject> = [
     { "WAYPOINT": WAYPOINT_COMMAND },
     { "HOME": HOME_COMMAND },
@@ -169,8 +219,12 @@ const COMMAND_TYPE_OBJECT_ARRAY: Array<CommandObject> = [
     { "RETURN_TO_LAUNCH": RETURN_TO_LAUNCH },
     { "TAKEOFF": TAKEOFF },
     { "LAND": LAND },
-    { "DELAY": DELAY},
-    { "GUIDED_ENABLE": GUIDED_ENABLE }
+    { "DELAY": DELAY },
+    { "GUIDED_ENABLE": GUIDED_ENABLE },
+    { "PAYLOAD_PLACE": PAYLOAD_PLACE },
+    { "DO_GUIDED_LIMITS": DO_GUIDED_LIMITS },
+    { "DO_WINCH": DO_WINCH },
+    { "DO_SET_ROI": DO_SET_ROI }
 ]
 
 export {

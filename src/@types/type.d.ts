@@ -36,6 +36,7 @@ type CommandType = {
     payload: Number,
     shown?: Boolean = true,
     spline?: Boolean = false,
+    isolated?: Boolean = false
 }
 
 type Center = {
