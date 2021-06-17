@@ -38,7 +38,7 @@ const CommandArray: Array<String> = [
     "DO_MOUNT_CONTROL"
 ];
 
-const WAYPOINT_COMMAND: CommandType = {
+const WAYPOINT: CommandType = {
     Command: "WAYPOINT",
     p1: true,
     p2: false,
@@ -48,7 +48,7 @@ const WAYPOINT_COMMAND: CommandType = {
     payload: 16,
 }
 
-const HOME_COMMAND: CommandType = {
+const HOME: CommandType = {
     Command: "HOME_POINT",
     p1: false,
     p2: false,
@@ -208,9 +208,126 @@ const DO_SET_ROI: CommandType = {
     payload: 201,
 }
 
+const CONDITION_DELAY: CommandType = {
+    Command: "CONDITION_DELAY",
+    p1: true,
+    p2: false,
+    p3: false,
+    p4: false,
+    p1Name: "Time (sec)",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 112
+}
+
+const CONDITION_CHANGE_ALT: CommandType = {
+    Command: "CONDITION_CHANGE_ALT",
+    p1: true,
+    p2: false,
+    p3: false,
+    p4: false,
+    p1Name: "Rate (cm/sec)",
+    latRequired: false,
+    longRequired: false,
+    shown: false,
+    payload: 113
+}
+
+const CONDITION_DISTANCE: CommandType = {
+    Command: "CONDITION_DISTANCE",
+    p1: true,
+    p2: false,
+    p3: false,
+    p4: false,
+    p1Name: "Dist (m)",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 114
+}
+
+const CONDITION_YAW: CommandType = {
+    Command: "CONDITION_DISTANCE",
+    p1: true,
+    p2: true,
+    p3: true,
+    p4: true,
+    p1Name: "Deg",
+    p2Name: "Sec",
+    p3Name: "Dir 1=CW",
+    p4Name: "rel/abs",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 115
+}
+
+const DO_JUMP: CommandType = {
+    Command: "CONDITION_DISTANCE",
+    p1: true,
+    p2: true,
+    p3: false,
+    p4: false,
+    p1Name: "WP #",
+    p2Name: "Repeat",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 177
+}
+
+const DO_CHANGE_SPEED: CommandType = {
+    Command: "DO_CHANGE_SPEED",
+    p1: true,
+    p2: true,
+    p3: false,
+    p4: false,
+    p1Name: "speed m/s",
+    p2Name: "speed m/s",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 178
+}
+
+const DO_GRIPPER: CommandType = {
+    Command: "DO_GRIPPER",
+    p1: true,
+    p2: true,
+    p3: false,
+    p4: false,
+    p1Name: "Gripper no",
+    p2Name: "drop (0) / grab (1)",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 211
+}
+
+const DO_PARACHUTE: CommandType = {
+    Command: "DO_PARACHUTE",
+    p1: true,
+    p2: false,
+    p3: false,
+    p4: false,
+    p1Name: "Enable(1)/Release(2)",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 208
+}
+
 const COMMAND_TYPE_OBJECT_ARRAY: Array<CommandObject> = [
-    { "WAYPOINT": WAYPOINT_COMMAND },
-    { "HOME": HOME_COMMAND },
+    { "WAYPOINT": WAYPOINT },
+    { "HOME": HOME },
     { "SPLINE_WAYPOINT": SPLINE_WAYPOINT },
     { "LOITER_TURNS": LOITER_TURNS },
     { "LOITER_TIME": LOITER_TIME },
@@ -223,7 +340,15 @@ const COMMAND_TYPE_OBJECT_ARRAY: Array<CommandObject> = [
     { "PAYLOAD_PLACE": PAYLOAD_PLACE },
     { "DO_GUIDED_LIMITS": DO_GUIDED_LIMITS },
     { "DO_WINCH": DO_WINCH },
-    { "DO_SET_ROI": DO_SET_ROI }
+    { "DO_SET_ROI": DO_SET_ROI },
+    { "CONDITION_DELAY": CONDITION_DELAY },
+    { "CONDITION_CHANGE_ALT": CONDITION_CHANGE_ALT },
+    { "CONDITION_DISTANCE": CONDITION_DISTANCE },
+    { "CONDITION_YAW": CONDITION_YAW },
+    { "DO_JUMP": DO_JUMP },
+    { "DO_CHANGE_SPEED": DO_CHANGE_SPEED },
+    { "DO_GRIPPER": DO_GRIPPER },
+    { "DO_PARACHUTE": DO_PARACHUTE }
 ]
 
 export {
