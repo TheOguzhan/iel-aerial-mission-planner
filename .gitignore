@@ -24,8 +24,6 @@ yarn-error.log*
 
 *.env
 
-src/config
+#src/config
 
 /waypoints
-
-selectbox.html

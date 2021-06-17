@@ -1,0 +1,46 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+  schedule:
+    - cron: "0 2 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  test_and_build:
+    name: Test and build on node ${{matrix.node_version}} and ${{matrix.os}}
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        node_version: [15.x]
+        os: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{matrix.node_version}}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.node_version}}
+
+      - name: install dependencies
+        run: npm install
+
+      - name: Run the tests and generate coverage report
+        run: npm run test -- --coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Build the code
+        run: 
+          REACT_APP_GOOGLE_MAPS_API_KEY=${{secrets.REACT_APP_GOOGLE_MAPS_API_KEY}} npm run build

@@ -18,11 +18,7 @@ Array [
     </h2>
   </div>,
   <input
-    className="border rounded-lg
- p-2  w-28
- dark:border-green-600 dark:bg-green-500
- border-blue-500 bg-blue-400
- dark:text-white text-dark"
+    className="border rounded-lg p-2  w-28 dark:border-green-600 dark:bg-green-500 border-blue-500 bg-blue-400 dark:text-white text-dark"
     data-testid="val-input"
     onBlur={[Function]}
     onChange={[Function]}
