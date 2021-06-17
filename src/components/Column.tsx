@@ -64,6 +64,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
           onChange={(element: String) => {
             setCommand(element);
           }}
+          large={true}
         />
       </td>
       <td
