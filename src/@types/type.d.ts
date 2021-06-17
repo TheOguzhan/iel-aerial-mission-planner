@@ -11,9 +11,9 @@ type Data = {
 }
 
 type FrameObjectType = {
-    [TERRAIN : String]: Number,
-    [ABSOLUTE : String]: Number,
-    [RELATIVE : String]: Number
+    [TERRAIN: String]: Number,
+    [ABSOLUTE: String]: Number,
+    [RELATIVE: String]: Number
 }
 
 type CommandObject = {
@@ -30,13 +30,17 @@ type CommandType = {
     p2Name?: String,
     p3Name?: String,
     p4Name?: String,
-    latRequired ?: Boolean = true,
+    latRequired?: Boolean = true,
     longRequired?: Boolean = true,
-    altRequired ?: Boolean = true,
+    altRequired?: Boolean = true,
     payload: Number,
     shown?: Boolean = true,
     spline?: Boolean = false,
-    isolated?: Boolean = false
+    isolated?: Boolean = false,
+    latModified?: Boolean = false,
+    longModified?: Boolean = false,
+    latName?: String,
+    longName?: String,
 }
 
 type Center = {

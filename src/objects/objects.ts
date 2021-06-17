@@ -325,6 +325,133 @@ const DO_PARACHUTE: CommandType = {
     payload: 208
 }
 
+const DO_SET_CAM_TRIGG_DIST: CommandType = {
+    Command: "DO_SET_CAM_TRIGG_DIST",
+    p1: true,
+    p2: false,
+    p3: false,
+    p4: false,
+    p1Name: "Dist(m)",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 206
+}
+
+const DO_SET_RELAY: CommandType = {
+    Command: "DO_SET_RELAY",
+    p1: true,
+    p2: true,
+    p3: false,
+    p4: false,
+    p1Name: "Relay no",
+    p2Name: "off (0) / on (1)",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 181
+}
+
+const DO_REPEAT_RELAY: CommandType = {
+    Command: "DO_REPEAT_RELAY",
+    p1: true,
+    p2: true,
+    p3: true,
+    p4: false,
+    p1Name: "Relay no",
+    p2Name: "Relay #",
+    p3Name: "Delay (s)",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 182
+}
+
+const DO_SET_SERVO: CommandType = {
+    Command: "DO_SET_SERVO",
+    p1: true,
+    p2: true,
+    p3: false,
+    p4: false,
+    p1Name: "Ser No",
+    p2Name: "PWM",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 183
+}
+
+const DO_REPEAT_SERVO: CommandType = {
+    Command: "DO_REPEAT_SERVO",
+    p1: true,
+    p2: true,
+    p3: true,
+    p4: true,
+    p1Name: "Ser no",
+    p2Name: "PWM",
+    p3Name: "Repeat #",
+    p4Name: "Delay (s)",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 184
+}
+
+const DO_DIGICAM_CONFIGURE: CommandType = {
+    Command: "DO_DIGICAM_CONFIGURE",
+    p1: true,
+    p2: true,
+    p3: true,
+    p4: true,
+    p1Name: "Mode",
+    p2Name: "Shutter speed",
+    p3Name: "Aperture",
+    p4Name: "ISO",
+    latModified: true,
+    longModified: true,
+    latName: "Exposure Mode",
+    longName: "Command ID",
+    payload: 202
+}
+
+const DO_DIGICAM_CONTROL: CommandType = {
+    Command: "DO_DIGICAM_CONTROL",
+    p1: true,
+    p2: true,
+    p3: true,
+    p4: true,
+    p1Name: "On/Off",
+    p2Name: "Zoom position",
+    p3Name: "Zoom Step",
+    p4Name: "Focus Lock",
+    latModified: true,
+    longModified: true,
+    latName: "Shutter Cmd",
+    longName: "Command ID",
+    payload: 203
+}
+
+const DO_MOUNT_CONTROL: CommandType = {
+    Command: "DO_MOUNT_CONTROL",
+    p1: true,
+    p2: true,
+    p3: true,
+    p4: false,
+    p1Name: "Pitch",
+    p2Name: "Roll",
+    p3Name: "Yaw",
+    latRequired: false,
+    longRequired: false,
+    altRequired: false,
+    shown: false,
+    payload: 205
+}
+
 const COMMAND_TYPE_OBJECT_ARRAY: Array<CommandObject> = [
     { "WAYPOINT": WAYPOINT },
     { "HOME": HOME },
@@ -348,7 +475,15 @@ const COMMAND_TYPE_OBJECT_ARRAY: Array<CommandObject> = [
     { "DO_JUMP": DO_JUMP },
     { "DO_CHANGE_SPEED": DO_CHANGE_SPEED },
     { "DO_GRIPPER": DO_GRIPPER },
-    { "DO_PARACHUTE": DO_PARACHUTE }
+    { "DO_PARACHUTE": DO_PARACHUTE },
+    { "DO_SET_CAM_TRIGG_DIST": DO_SET_CAM_TRIGG_DIST },
+    { "DO_SET_RELAY": DO_SET_RELAY },
+    { "DO_REPEAT_RELAY": DO_REPEAT_RELAY },
+    { "DO_SET_SERVO": DO_SET_SERVO },
+    { "DO_REPEAT_SERVO": DO_REPEAT_SERVO },
+    { "DO_DIGICAM_CONFIGURE": DO_DIGICAM_CONFIGURE },
+    { "DO_DIGICAM_CONTROL": DO_DIGICAM_CONTROL },
+    { "DO_MOUNT_CONTROL": DO_MOUNT_CONTROL }
 ]
 
 export {
