@@ -6,6 +6,7 @@ import useMoveData from "../hooks/useMoveData";
 import DoubleClickInput from "./DoubleClickInput";
 import { FrameArray } from "../objects/objects";
 import { DoubleClickSelect } from "./DoubleClickSelect";
+import { CommandArray } from "../objects/objects";
 
 export interface IColumnProps {
   id: number;
@@ -20,21 +21,24 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
   const [lng, setLng] = useState<string>(props.data.long.toString());
   const [alt, setAlt] = useState<string>(props.data.alt.toString());
   const [frameType, setFrameType] = useState<String>(props.data.frame);
+  const [command, setCommand] = useState<String>(props.data.command);
   useEffect(() => {
     let gotData: Data = {
       ...props.data,
       long: lng,
       lat,
       alt,
-      frame: frameType
+      frame: frameType,
+      command,
     };
     changeData(props.id, gotData);
-  }, [lat, lng, alt, frameType]);
+  }, [lat, lng, alt, frameType, command]);
   useEffect(() => {
     setLat(props.data.lat.toString());
     setLng(props.data.long.toString());
     setAlt(props.data.alt.toString());
     setFrameType(props.data.frame);
+    setCommand(props.data.command);
   }, [props.data]);
   return (
     <tr>
@@ -54,7 +58,13 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
       dark:border-green-600 dark:bg-green-500
       border-blue-500 bg-blue-400"
       >
-        {props.data.command}
+        <DoubleClickSelect
+          options={CommandArray}
+          val={props.data.command}
+          onChange={(element: String) => {
+            setCommand(element);
+          }}
+        />
       </td>
       <td
         className="
@@ -147,7 +157,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
         <DoubleClickSelect
           options={FrameArray}
           val={props.data.frame}
-          onChange={(element:String) => {
+          onChange={(element: String) => {
             setFrameType(element);
           }}
         />
