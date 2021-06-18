@@ -6,7 +6,7 @@ Array [
     className="mt-1 mx-auto relative"
   >
     <span
-      className="flex items-center text-center select-none cursor-pointer dark:text-white text-black"
+      className="flex items-center  select-none cursor-pointer dark:text-white text-black"
       data-testid="val-displayer"
       onClick={[Function]}
     >
@@ -16,7 +16,7 @@ Array [
   <ul
     aria-activedescendant="listbox-option-3"
     aria-labelledby="listbox-label"
-    className="absolute z-10 mt-1 w-28 mx-auto bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+    className="absolute z-10 mt-1 w-28  mx-auto bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
     data-testid="main-select"
     onBlur={[Function]}
     role="listbox"
@@ -29,7 +29,7 @@ Array [
   >
     <li
       aria-selected={true}
-      className="text-gray-900 cursor-pointer select-none relative py-2 pl-2 pr-2 hover:bg-gray-200"
+      className="text-gray-900  cursor-pointer select-none relative py-2 pl-2 pr-2 hover:bg-gray-200"
       data-testid="option"
       id="list-box-option-0"
       onClick={[Function]}
@@ -47,7 +47,7 @@ Array [
     </li>
     <li
       aria-selected={false}
-      className="text-gray-900 cursor-pointer select-none relative py-2 pl-2 pr-2 hover:bg-gray-200"
+      className="text-gray-900  cursor-pointer select-none relative py-2 pl-2 pr-2 hover:bg-gray-200"
       data-testid="option"
       id="list-box-option-1"
       onClick={[Function]}
@@ -65,7 +65,7 @@ Array [
     </li>
     <li
       aria-selected={false}
-      className="text-gray-900 cursor-pointer select-none relative py-2 pl-2 pr-2 hover:bg-gray-200"
+      className="text-gray-900  cursor-pointer select-none relative py-2 pl-2 pr-2 hover:bg-gray-200"
       data-testid="option"
       id="list-box-option-2"
       onClick={[Function]}
