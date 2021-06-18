@@ -5,6 +5,7 @@ interface IDoubleClickSelectProps {
   val: String;
   disabled?: boolean;
   onChange: Function;
+  large?: boolean;
 }
 
 export const DoubleClickSelect: React.FunctionComponent<IDoubleClickSelectProps> =
@@ -15,7 +16,7 @@ export const DoubleClickSelect: React.FunctionComponent<IDoubleClickSelectProps>
       <>
         <div className="mt-1 mx-auto relative">
           <span
-            className="flex items-center text-center select-none cursor-pointer dark:text-white text-black"
+            className="flex items-center  select-none cursor-pointer dark:text-white text-black"
             onClick={(e) => setEdit(!edit)}
             data-testid="val-displayer"
           >
@@ -23,7 +24,9 @@ export const DoubleClickSelect: React.FunctionComponent<IDoubleClickSelectProps>
           </span>
         </div>
         <ul
-          className="absolute z-10 mt-1 w-28 mx-auto bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+          className={`absolute z-10 mt-1 ${
+            props.large ? "w-56" : "w-28"
+          }  mx-auto bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm`}
           tabIndex={-1}
           role="listbox"
           aria-labelledby="listbox-label"
@@ -37,7 +40,7 @@ export const DoubleClickSelect: React.FunctionComponent<IDoubleClickSelectProps>
           {props.options.map((element, index) => {
             return (
               <li
-                className="text-gray-900 cursor-pointer select-none relative py-2 pl-2 pr-2 hover:bg-gray-200"
+                className="text-gray-900  cursor-pointer select-none relative py-2 pl-2 pr-2 hover:bg-gray-200"
                 id={`list-box-option-${index}`}
                 role="option"
                 aria-selected={select === element}
@@ -64,4 +67,5 @@ export const DoubleClickSelect: React.FunctionComponent<IDoubleClickSelectProps>
 
 DoubleClickSelect.defaultProps = {
   disabled: false,
+  large: false,
 };
