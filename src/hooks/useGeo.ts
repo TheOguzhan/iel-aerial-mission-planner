@@ -1,6 +1,6 @@
 import { useCallback, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { DataState } from "../redux/reducers";
+import { DataState } from "../redux/table data/reducers";
 import { getDistance } from 'geolib';
 
 export default function useGeo(passedData: Data) {

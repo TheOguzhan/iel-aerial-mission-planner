@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import { addData } from "../redux/actions";
+import { addData } from "../redux/table data/actions";
 
 export default function usePushData() {
       const dispatch = useDispatch();
