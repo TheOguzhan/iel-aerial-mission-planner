@@ -8,14 +8,11 @@
     "@react-google-maps/api": "^2.2.0",
     "@reduxjs/toolkit": "^1.6.0",
     "@testing-library/jest-dom": "=5.14.1",
-    "@testing-library/react": "=11.2.7",
+    "@testing-library/react": "=12.0.0",
     "@testing-library/user-event": "=13.1.9",
     "@types/jest": "^26.0.23",
-    "@types/node": "^15.12.2",
-    "@types/react-dom": "^17.0.7",
-    "concurrently": "^6.2.0",
-    "cross-env": "^7.0.3",
-    "electron": "^13.1.4",
+    "@types/node": "^15.12.5",
+    "@types/react-dom": "^17.0.8",
     "geolib": "^3.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -31,10 +28,7 @@
     "build": "craco build",
     "test": "craco test",
     "tailwind:css": "tailwind build src/tailwind.css -c tailwind.config.js -o src/index.css",
-    "eject": "react-scripts eject",
-    "electron:serve": "concurrently -k \"cross-env BROWSER=none npm start\" \"npm run electron:start\"",
-    "electron:build": "npm build && electron-builder -c.extraMetadata.main=build/main.js",
-    "electron:start": "wait-on tcp:3000 && electron ."
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
