@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeData } from "../redux/actions";
-import { DataState } from "../redux/reducers";
+import { removeData } from "../redux/table data/actions";
+import { DataState } from "../redux/table data/reducers";
 
 export default function useDeleteData() {
     const data = useSelector<DataState, DataState["data"]>(

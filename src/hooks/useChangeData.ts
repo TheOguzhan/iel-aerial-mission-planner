@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { mutateData } from "../redux/actions";
-import { DataState } from "../redux/reducers";
+import { mutateData } from "../redux/table data/actions";
+import { DataState } from "../redux/table data/reducers";
 
 export default function useChangeData() {
     const data = useSelector<DataState, DataState["data"]>(

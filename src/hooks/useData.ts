@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
-import { DataState } from "../redux/reducers";
+import { DataState } from "../redux/table data/reducers";
 
 export default function useData() {
     const data = useSelector<DataState, DataState["data"]>(

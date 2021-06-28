@@ -1,5 +1,5 @@
 import { ACTION } from "./actions";
-import array_move from "../utils/arrayMover";
+import array_move from "../../utils/arrayMover";
 export interface DataState {
     data: Array<Data>
 }

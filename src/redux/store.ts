@@ -1,5 +1,5 @@
 import { compose, createStore } from 'redux';
-import { dataReducer } from "./reducers";
+import { dataReducer } from "./table data/reducers";
 
 
 declare global {
