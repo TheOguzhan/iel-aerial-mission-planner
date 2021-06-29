@@ -35,7 +35,8 @@ const CommandArray: Array<String> = [
     "DO_REPEAT_SERVO",
     "DO_DIGICAM_CONFIGURE",
     "DO_DIGICAM_CONTROL",
-    "DO_MOUNT_CONTROL"
+    "DO_MOUNT_CONTROL",
+    "HOME"
 ];
 
 const WAYPOINT: CommandType = {
