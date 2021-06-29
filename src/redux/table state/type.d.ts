@@ -20,6 +20,11 @@ type State = {
     state: State
 }
 
+type AllState = {
+    state: State[]
+}
+
+
 type StateAction = {
     type: String
 }

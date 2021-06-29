@@ -1,13 +1,16 @@
 import { ACTION } from './actions';
 
 export interface AllState {
-    state: Array<State>
+    data: Array<State>
 }
 
 const initialState = {
-    allState: []
+    data: []
 }
 
+
 export const stateReducer = (state: AllState = initialState, action: ACTION) => {
-    switch (action.type){}
+    switch (action.type) {
+
+    }
 }
