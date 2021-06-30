@@ -35,8 +35,7 @@ const CommandArray: Array<String> = [
     "DO_REPEAT_SERVO",
     "DO_DIGICAM_CONFIGURE",
     "DO_DIGICAM_CONTROL",
-    "DO_MOUNT_CONTROL",
-    "HOME"
+    "DO_MOUNT_CONTROL"
 ];
 
 const WAYPOINT: CommandType = {
@@ -50,7 +49,7 @@ const WAYPOINT: CommandType = {
 }
 
 const HOME: CommandType = {
-    Command: "HOME_POINT",
+    Command: "HOME",
     p1: false,
     p2: false,
     p3: false,
@@ -64,6 +63,7 @@ const SPLINE_WAYPOINT: CommandType = {
     p2: false,
     p3: false,
     p4: false,
+    p1Name: "Delay",
     payload: 82,
     spline: true
 }
