@@ -99,5 +99,75 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                 } as IState
             }
         }
+        case "LAND": {
+            return {
+                state: {
+                    p1: "",
+                    p2: "",
+                    p3: "",
+                    p4: ""
+                } as IState
+            }
+        }
+        case "DELAY": {
+            return {
+                state: {
+                    p1: "Seconds (or -1)",
+                    p2: "Hour UTC",
+                    p3: "Minute UTC",
+                    p4: "Second UTC"
+                } as IState
+            }
+        }
+        case "GUIDED_ENABLE": {
+            return {
+                state: {
+                    p1: "on=1/off=0",
+                    p2: "",
+                    p3: "",
+                    p4: ""
+                } as IState
+            }
+        }
+        case "PAYLOAD_PLACE": {
+            return {
+                state: {
+                    p1: "max decent",
+                    p2: "",
+                    p3: "",
+                    p4: ""
+                } as IState
+            }
+        }
+        case "DO_GUIDED_LIMITS": {
+            return {
+                state: {
+                    p1: "timeout S",
+                    p2: "min alt",
+                    p3: "max alt",
+                    p4: "max dist",
+                } as IState
+            }
+        }
+        case "DO_WINCH": {
+            return {
+                state: {
+                    p1: "winch no",
+                    p2: "action",
+                    p3: "length",
+                    p4: "rate",
+                } as IState
+            }
+        }
+        default: {
+            return {
+                state: {
+                    p1: "",
+                    p2: "",
+                    p3: "",
+                    p4: ""
+                } as IState
+            }
+        }
     }
 }
