@@ -251,7 +251,7 @@ const CONDITION_DISTANCE: CommandType = {
 }
 
 const CONDITION_YAW: CommandType = {
-    Command: "CONDITION_DISTANCE",
+    Command: "CONDITION_YAW",
     p1: true,
     p2: true,
     p3: true,
@@ -268,7 +268,7 @@ const CONDITION_YAW: CommandType = {
 }
 
 const DO_JUMP: CommandType = {
-    Command: "CONDITION_DISTANCE",
+    Command: "DO_JUMP",
     p1: true,
     p2: true,
     p3: false,

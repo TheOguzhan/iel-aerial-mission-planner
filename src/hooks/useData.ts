@@ -1,12 +1,12 @@
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
-import { DataState } from "../redux/table data/reducers";
+import { RootState } from "../redux/store";
 
 export default function useData() {
-    const data = useSelector<DataState, DataState["data"]>(
-        (state) => state.data
+    const data = useSelector<RootState, RootState["data"]>(
+        (state) => { console.log(state); return state.data }
     );
-
+    console.log(data);
     const getPath = useCallback((): Array<Path> => {
         let paths: Path[] = [];
 

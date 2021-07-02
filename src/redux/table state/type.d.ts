@@ -3,11 +3,9 @@ interface IState {
     p2: String,
     p3: String,
     p4: String,
-    latRequired?: Boolean = true,
-    longRequired?: Boolean = true,
     altRequired?: Boolean = true,
-    latName?: String,
-    longName?: String,
+    latName?: String = "Lat",
+    longName?: String = "Long",
 }
 
 type State = {
