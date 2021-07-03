@@ -3,10 +3,9 @@ import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 
 export default function useData() {
-    const data = useSelector<RootState, RootState["data"]>(
-        (state) => { console.log(state); return state.data }
+    const data = useSelector<RootState, RootState["dataReducer"]["data"]>(
+        (state) => state.dataReducer.data
     );
-    console.log(data);
     const getPath = useCallback((): Array<Path> => {
         let paths: Path[] = [];
 

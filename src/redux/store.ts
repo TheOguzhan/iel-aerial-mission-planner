@@ -1,6 +1,6 @@
 import { compose, createStore, combineReducers } from 'redux';
-import { dataReducer } from "./table data/reducers";
-import { stateReducer } from "./table state/reducers";
+import { dataReducer, DataState } from "./table data/reducers";
+import { stateReducer, AllState } from "./table state/reducers";
 
 declare global {
     interface Window {
@@ -8,8 +8,8 @@ declare global {
     }
 }
 export interface RootState {
-    data: Data[],
-    state: State
+    dataReducer: DataState,
+    stateReducer: AllState
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
