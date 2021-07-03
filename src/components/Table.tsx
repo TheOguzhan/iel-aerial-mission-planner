@@ -1,11 +1,13 @@
 import * as React from "react";
-
+import { useTableState } from "../hooks";
 import Column from "./Column";
 interface ITableProps {
   marks: Array<Data>;
 }
 
 const Table: React.FunctionComponent<ITableProps> = (props) => {
+  const [tableState] = useTableState();
+  console.log(tableState);
   return (
     <table className="table-fixed mx-auto border-separate border dark:border-green-800 border-blue-800   dark:text-white text-dark">
       <thead>
@@ -17,25 +19,25 @@ const Table: React.FunctionComponent<ITableProps> = (props) => {
             Command
           </th>
           <th className="w-32 dark:border-green-600 dark:bg-green-600 p-2 border-blue-500 bg-blue-500">
-            p1
+            {tableState.p1}
           </th>
           <th className="w-32 dark:border-green-600 dark:bg-green-600 p-2 border-blue-500 bg-blue-500">
-            p2
+            {tableState.p2}
           </th>
           <th className="w-32 dark:border-green-600 dark:bg-green-600 p-2 border-blue-500 bg-blue-500">
-            p3
+            {tableState.p3}
           </th>
           <th className="w-32 dark:border-green-600 dark:bg-green-600 p-2 border-blue-500 bg-blue-500">
-            p4
+            {tableState.p4}
           </th>
           <th className="w-32 dark:border-green-600 dark:bg-green-600 p-2 border-blue-500 bg-blue-500">
-            Lat
+            {tableState?.latName}
           </th>
           <th className="w-32 dark:border-green-600 dark:bg-green-600 p-2 border-blue-500 bg-blue-500">
-            Long
+            {tableState?.longName}
           </th>
           <th className="w-32 dark:border-green-600 dark:bg-green-600 p-2 border-blue-500 bg-blue-500">
-            Alt
+            {tableState?.altRequired ? "Altitude" : ""}
           </th>
           <th className="w-32 dark:border-green-600 dark:bg-green-600 p-2 border-blue-500 bg-blue-500">
             Frame

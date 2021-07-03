@@ -1,16 +1,14 @@
-interface IState {
+type State = {
     p1: String,
     p2: String,
     p3: String,
     p4: String,
-    altRequired?: Boolean = true,
-    latName?: String = "Lat",
-    longName?: String = "Long",
+    altRequired?: Boolean,
+    latName?: String,
+    longName?: String,
 }
 
-type State = {
-    state: IState
-}
+
 
 type AllState = {
     state: State[]

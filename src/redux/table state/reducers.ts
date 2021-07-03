@@ -1,21 +1,19 @@
 import { ACTION } from './actions';
-
+import { createState } from './createState';
 export interface AllState {
-    data: State
+    state: State
 }
 
 const initialState = {
-    data: {
-        state:
-            {
-                p1: "p1",
-                p2: "p2",
-                p3: "p3",
-                p4: "p4",
-            } as IState
-    } as State
+    state: createState({
+        p1: "p1",
+        p2: "p2",
+        p3: "p3",
+        p4: "p4",
+    })
 }
 
+// TODO: Refactor all this thing
 
 export const stateReducer = (state: AllState = initialState, action: ACTION) => {
     switch (action.type) {
@@ -26,7 +24,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     p2: "",
                     p3: "",
                     p4: ""
-                } as IState
+                } as State
             }
         }
         case "HOME": {
@@ -36,7 +34,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     p2: "",
                     p3: "",
                     p4: ""
-                } as IState
+                } as State
             }
         }
         case "SPLINE_WAYPOINT": {
@@ -46,7 +44,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     p2: "",
                     p3: "",
                     p4: ""
-                } as IState
+                } as State
             }
         }
         case "LOITER_TURNS": {
@@ -56,7 +54,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     p2: "Radius",
                     p3: "",
                     p4: ""
-                } as IState
+                } as State
             }
         }
         case "LOITER_TIME": {
@@ -66,7 +64,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     p2: "",
                     p3: "",
                     p4: ""
-                } as IState
+                } as State
             }
         }
         case "LOITER_UNLIM": {
@@ -76,7 +74,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     p2: "",
                     p3: "",
                     p4: ""
-                } as IState
+                } as State
             }
         }
         case "RETURN_TO_LAUNCH": {
@@ -89,7 +87,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "TAKEOFF": {
@@ -101,7 +99,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     p4: "",
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "LAND": {
@@ -111,7 +109,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     p2: "",
                     p3: "",
                     p4: ""
-                } as IState
+                } as State
             }
         }
         case "DELAY": {
@@ -124,7 +122,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "GUIDED_ENABLE": {
@@ -134,7 +132,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     p2: "",
                     p3: "",
                     p4: ""
-                } as IState
+                } as State
             }
         }
         case "PAYLOAD_PLACE": {
@@ -144,7 +142,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     p2: "",
                     p3: "",
                     p4: ""
-                } as IState
+                } as State
             }
         }
         case "DO_GUIDED_LIMITS": {
@@ -157,7 +155,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "DO_WINCH": {
@@ -167,7 +165,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     p2: "action",
                     p3: "length",
                     p4: "rate",
-                } as IState
+                } as State
             }
         }
         case "DO_SET_ROI": {
@@ -177,7 +175,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     p2: "",
                     p3: "",
                     p4: "",
-                } as IState
+                } as State
             }
         }
         case "CONDITION_DELAY": {
@@ -190,7 +188,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "CONDITION_CHANGE_ALT": {
@@ -203,7 +201,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "CONDITION_DISTANCE": {
@@ -216,7 +214,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "CONDITION_YAW": {
@@ -229,7 +227,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "DO_JUMP": {
@@ -242,7 +240,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "DO_CHANGE_SPEED": {
@@ -255,7 +253,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "DO_GRIPPER": {
@@ -268,7 +266,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "DO_PARACHUTE": {
@@ -281,7 +279,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "DO_SET_CAM_TRIGG_DIST": {
@@ -294,7 +292,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "DO_SET_RELAY": {
@@ -307,7 +305,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "DO_REPEAT_RELAY": {
@@ -320,7 +318,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "DO_SET_SERVO": {
@@ -333,7 +331,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "DO_REPEAT_SERVO": {
@@ -346,7 +344,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     altRequired: false,
                     latName: "",
                     longName: ""
-                } as IState
+                } as State
             }
         }
         case "DO_DIGICAM_CONFIGURE": {
@@ -358,7 +356,7 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     p4: "ISO",
                     latName: "Exposure Mode",
                     longName: "Command ID"
-                } as IState
+                } as State
             }
         }
         case "DO_DIGICAM_CONTROL": {
@@ -370,17 +368,17 @@ export const stateReducer = (state: AllState = initialState, action: ACTION) => 
                     p4: "Focus Lock",
                     latName: "Shutter Cmd",
                     longName: "Command ID"
-                } as IState
+                } as State
             }
         }
         default: {
             return {
-                state: {
-                    p1: "",
-                    p2: "",
-                    p3: "",
-                    p4: ""
-                } as IState
+                state: createState({
+                    p1: "p1",
+                    p2: "p2",
+                    p3: "p3",
+                    p4: "p4",
+                })
             }
         }
     }
