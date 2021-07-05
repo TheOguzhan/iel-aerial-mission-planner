@@ -4,6 +4,7 @@ import useDeleteData from "./useDeleteData";
 import useGeo from "./useGeo";
 import usePushData from "./usePushData";
 import useTableState from "./useTableState";
+import useChangeTableState from "./useChangeTableState";
 
 export {
     useChangeData,
@@ -11,5 +12,6 @@ export {
     useDeleteData,
     useGeo,
     usePushData,
-    useTableState
+    useTableState,
+    useChangeTableState
 }

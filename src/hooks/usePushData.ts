@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addData } from "../redux/table data/actions";
 
 export default function usePushData() {
-      const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const push = useCallback((passedData: Data): void => {
         dispatch(addData(passedData))

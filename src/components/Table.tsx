@@ -7,7 +7,7 @@ interface ITableProps {
 
 const Table: React.FunctionComponent<ITableProps> = (props) => {
   const [tableState] = useTableState();
-  console.log(tableState);
+  
   return (
     <table className="table-fixed mx-auto border-separate border dark:border-green-800 border-blue-800   dark:text-white text-dark">
       <thead>
