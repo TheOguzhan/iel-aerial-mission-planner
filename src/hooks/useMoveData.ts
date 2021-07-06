@@ -1,11 +1,11 @@
 import { useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { upData, downData } from "../redux/actions";
-import { DataState } from "../redux/reducers";
+import { RootState } from "../redux/store";
+import { upData, downData } from "../redux/table data/actions";
 
 export default function useUpData() {
-    const data = useSelector<DataState, DataState["data"]>(
-        (state) => state.data
+    const data = useSelector<RootState, RootState["dataReducer"]["data"]>(
+        (state) => state.dataReducer.data
     );
 
     const dispatch = useDispatch();

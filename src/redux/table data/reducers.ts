@@ -1,5 +1,5 @@
 import { ACTION } from "./actions";
-import array_move from "../utils/arrayMover";
+import array_move from "../../utils/arrayMover";
 export interface DataState {
     data: Array<Data>
 }
@@ -37,8 +37,8 @@ export const dataReducer = (state: DataState = initialState, action: ACTION) => 
                 const newData = array_move(copyData, old_index, new_index);
                 return { ...state, data: [...newData] }
             }
-            else{
-                return {...state, data: state.data}
+            else {
+                return { ...state, data: state.data }
             }
         }
         case "DOWN_DATA": {
