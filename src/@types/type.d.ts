@@ -20,6 +20,8 @@ type CommandObject = {
     [Command: String]: CommandType
 }
 
+
+// TODO: Refactor this like createState
 type CommandType = {
     Command: String,
     p1: Boolean,

@@ -1,11 +1,11 @@
 import { useCallback, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { DataState } from "../redux/table data/reducers";
 import { getDistance } from 'geolib';
+import { RootState } from "../redux/store";
 
 export default function useGeo(passedData: Data) {
-    const data = useSelector<DataState, DataState["data"]>(
-        (state) => state.data
+    const data = useSelector<RootState, RootState["dataReducer"]["data"]>(
+        (state) => state.dataReducer.data
     );
     const passedDataIndex = data.indexOf(passedData);
     const [previousDistance, setPreviousDistance] = useState<number>(0);
