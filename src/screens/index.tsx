@@ -26,6 +26,7 @@ const options = {
 const Screen: React.FC = () => {
   const [data, getPath] = useData();
   const [pushData] = usePushData();
+
   const google_maps_api_key: string = process.env
     .REACT_APP_GOOGLE_MAPS_API_KEY as string;
   return (
@@ -37,17 +38,33 @@ const Screen: React.FC = () => {
           center={center}
           zoom={15}
           onClick={(e) => {
-            let gotData: IData = {
-              command: "WAYPOINT",
-              p1: "0.00000000",
-              p2: "0.00000000",
-              p3: "0.00000000",
-              p4: "0.00000000",
-              lat: e.latLng.lat()?.toFixed(8).toString(),
-              long: e.latLng.lng()?.toFixed(8).toString(),
-              alt: "100.000000",
-              frame: "RELATIVE",
-            };
+            let gotData: Data;
+            if (data.length === 0) {
+              gotData = {
+                command: "HOME",
+                p1: "0.000000",
+                p2: "0.000000",
+                p3: "0.000000",
+                p4: "0.000000",
+                lat: e.latLng.lat()?.toFixed(6).toString(),
+                long: e.latLng.lng()?.toFixed(6).toString(),
+                alt: "100.000000",
+                frame: "RELATIVE",
+              };
+            } else {
+              gotData = {
+                command: "WAYPOINT",
+                p1: "0.00000000",
+                p2: "0.00000000",
+                p3: "0.00000000",
+                p4: "0.00000000",
+                lat: e.latLng.lat()?.toFixed(8).toString(),
+                long: e.latLng.lng()?.toFixed(8).toString(),
+                alt: "100.000000",
+                frame: "RELATIVE",
+              };
+            }
+
             pushData(gotData);
           }}
         >
