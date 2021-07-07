@@ -1,4 +1,4 @@
-type State = {
+declare type State = {
     p1: String,
     p2: String,
     p3: String,
@@ -10,13 +10,13 @@ type State = {
 
 
 
-type AllState = {
+declare type AllState = {
     state: State[]
 }
 
 
-type StateAction = {
+declare type StateAction = {
     type: String
 }
 
-type DispatchType = (args: StateAction) => StateAction
+declare type DispatchType = (args: StateAction) => StateAction

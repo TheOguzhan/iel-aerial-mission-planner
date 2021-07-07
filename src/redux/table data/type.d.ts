@@ -1,4 +1,4 @@
-interface IData {
+declare interface IData {
     command: String,
     p1: String,
     p2: String,
@@ -9,13 +9,13 @@ interface IData {
     alt: String,
     frame: String
 }
-type DataState = {
+declare type DataState = {
     data: IData[]
 }
 
-type DataAction = {
+declare type DataAction = {
     type: String,
     data: IData
 }
 
-type DispatchType = (args: DataAction) => DataAction
+declare type DispatchType = (args: DataAction) => DataAction

@@ -1,4 +1,4 @@
-import { createCommand } from './createCommand';
+import { createCommand } from '../utils/createCommand';
 
 const FrameObject: FrameObjectType = {
     RELATIVE: 3,
@@ -40,7 +40,7 @@ const CommandArray: Array<String> = [
     "DO_MOUNT_CONTROL"
 ];
 
-const WAYPOINT: CommandType = {
+const WAYPOINT: CommandType = createCommand({
     Command: "WAYPOINT",
     p1: true,
     p2: false,
@@ -48,18 +48,18 @@ const WAYPOINT: CommandType = {
     p4: false,
     p1Name: "Delay",
     payload: 16,
-}
+})
 
-const HOME: CommandType = {
+const HOME: CommandType = createCommand({
     Command: "HOME",
     p1: false,
     p2: false,
     p3: false,
     p4: false,
     payload: 16,
-}
+})
 
-const SPLINE_WAYPOINT: CommandType = {
+const SPLINE_WAYPOINT: CommandType = createCommand({
     Command: "SPLINE_WAYPOINT",
     p1: true,
     p2: false,
@@ -68,9 +68,9 @@ const SPLINE_WAYPOINT: CommandType = {
     p1Name: "Delay",
     payload: 82,
     spline: true
-}
+})
 
-const LOITER_TURNS: CommandType = {
+const LOITER_TURNS: CommandType = createCommand({
     Command: "LOITER_TURNS",
     p1: true,
     p2: false,
@@ -79,9 +79,9 @@ const LOITER_TURNS: CommandType = {
     payload: 18,
     p1Name: "Turns",
     p3Name: "Radius",
-}
+})
 
-const LOITER_TIME: CommandType = {
+const LOITER_TIME: CommandType = createCommand({
     Command: "LOITER_TIME",
     p1: true,
     p2: false,
@@ -89,18 +89,18 @@ const LOITER_TIME: CommandType = {
     p4: false,
     p1Name: "Delay",
     payload: 19
-}
+})
 
-const LOITER_UNLIM: CommandType = {
+const LOITER_UNLIM: CommandType = createCommand({
     Command: "LOITER_UNLIM",
     p1: false,
     p2: false,
     p3: false,
     p4: false,
     payload: 17
-}
+})
 
-const RETURN_TO_LAUNCH: CommandType = {
+const RETURN_TO_LAUNCH: CommandType = createCommand({
     Command: "RETURN_TO_LAUNCH",
     p1: false,
     p2: false,
@@ -111,9 +111,9 @@ const RETURN_TO_LAUNCH: CommandType = {
     altRequired: false,
     shown: false,
     payload: 20
-}
+})
 
-const TAKEOFF: CommandType = {
+const TAKEOFF: CommandType = createCommand({
     Command: "TAKEOFF",
     p1: false,
     p2: false,
@@ -123,19 +123,19 @@ const TAKEOFF: CommandType = {
     longRequired: false,
     shown: false,
     payload: 22
-}
+})
 
 
-const LAND: CommandType = {
+const LAND: CommandType = createCommand({
     Command: "LAND",
     p1: false,
     p2: false,
     p3: false,
     p4: false,
     payload: 21
-}
+})
 
-const DELAY: CommandType = {
+const DELAY: CommandType = createCommand({
     Command: "DELAY",
     p1: true,
     p2: true,
@@ -149,9 +149,9 @@ const DELAY: CommandType = {
     longRequired: false,
     altRequired: false,
     payload: 93
-}
+})
 
-const GUIDED_ENABLE: CommandType = {
+const GUIDED_ENABLE: CommandType = createCommand({
     Command: "GUIDED_ENABLE",
     p1: true,
     p2: false,
@@ -159,9 +159,9 @@ const GUIDED_ENABLE: CommandType = {
     p4: false,
     p1Name: "on=1/off=0",
     payload: 92
-}
+})
 
-const PAYLOAD_PLACE: CommandType = {
+const PAYLOAD_PLACE: CommandType = createCommand({
     Command: "PAYLOAD_PLACE",
     p1: true,
     p2: false,
@@ -169,9 +169,9 @@ const PAYLOAD_PLACE: CommandType = {
     p4: false,
     p1Name: "max decent",
     payload: 94
-}
+})
 
-const DO_GUIDED_LIMITS: CommandType = {
+const DO_GUIDED_LIMITS: CommandType = createCommand({
     Command: "DO_GUIDED_LIMITS",
     p1: true,
     p2: true,
@@ -186,9 +186,9 @@ const DO_GUIDED_LIMITS: CommandType = {
     altRequired: false,
     shown: false,
     payload: 222
-}
+})
 
-const DO_WINCH: CommandType = {
+const DO_WINCH: CommandType = createCommand({
     Command: "DO_WINCH",
     p1: true,
     p2: true,
@@ -200,18 +200,18 @@ const DO_WINCH: CommandType = {
     p4Name: "rate",
     isolated: true,
     payload: 42600
-}
+})
 
-const DO_SET_ROI: CommandType = {
+const DO_SET_ROI: CommandType = createCommand({
     Command: "DO_SET_ROI",
     p1: false,
     p2: false,
     p3: false,
     p4: false,
     payload: 201,
-}
+})
 
-const CONDITION_DELAY: CommandType = {
+const CONDITION_DELAY: CommandType = createCommand({
     Command: "CONDITION_DELAY",
     p1: true,
     p2: false,
@@ -223,9 +223,9 @@ const CONDITION_DELAY: CommandType = {
     altRequired: false,
     shown: false,
     payload: 112
-}
+})
 
-const CONDITION_CHANGE_ALT: CommandType = {
+const CONDITION_CHANGE_ALT: CommandType = createCommand({
     Command: "CONDITION_CHANGE_ALT",
     p1: true,
     p2: false,
@@ -236,9 +236,9 @@ const CONDITION_CHANGE_ALT: CommandType = {
     longRequired: false,
     shown: false,
     payload: 113
-}
+})
 
-const CONDITION_DISTANCE: CommandType = {
+const CONDITION_DISTANCE: CommandType = createCommand({
     Command: "CONDITION_DISTANCE",
     p1: true,
     p2: false,
@@ -250,9 +250,9 @@ const CONDITION_DISTANCE: CommandType = {
     altRequired: false,
     shown: false,
     payload: 114
-}
+})
 
-const CONDITION_YAW: CommandType = {
+const CONDITION_YAW: CommandType = createCommand({
     Command: "CONDITION_YAW",
     p1: true,
     p2: true,
@@ -267,9 +267,9 @@ const CONDITION_YAW: CommandType = {
     altRequired: false,
     shown: false,
     payload: 115
-}
+})
 
-const DO_JUMP: CommandType = {
+const DO_JUMP: CommandType = createCommand({
     Command: "DO_JUMP",
     p1: true,
     p2: true,
@@ -282,9 +282,9 @@ const DO_JUMP: CommandType = {
     altRequired: false,
     shown: false,
     payload: 177
-}
+})
 
-const DO_CHANGE_SPEED: CommandType = {
+const DO_CHANGE_SPEED: CommandType = createCommand({
     Command: "DO_CHANGE_SPEED",
     p1: true,
     p2: true,
@@ -297,9 +297,9 @@ const DO_CHANGE_SPEED: CommandType = {
     altRequired: false,
     shown: false,
     payload: 178
-}
+})
 
-const DO_GRIPPER: CommandType = {
+const DO_GRIPPER: CommandType = createCommand({
     Command: "DO_GRIPPER",
     p1: true,
     p2: true,
@@ -312,9 +312,9 @@ const DO_GRIPPER: CommandType = {
     altRequired: false,
     shown: false,
     payload: 211
-}
+})
 
-const DO_PARACHUTE: CommandType = {
+const DO_PARACHUTE: CommandType = createCommand({
     Command: "DO_PARACHUTE",
     p1: true,
     p2: false,
@@ -326,9 +326,9 @@ const DO_PARACHUTE: CommandType = {
     altRequired: false,
     shown: false,
     payload: 208
-}
+})
 
-const DO_SET_CAM_TRIGG_DIST: CommandType = {
+const DO_SET_CAM_TRIGG_DIST: CommandType = createCommand({
     Command: "DO_SET_CAM_TRIGG_DIST",
     p1: true,
     p2: false,
@@ -340,9 +340,9 @@ const DO_SET_CAM_TRIGG_DIST: CommandType = {
     altRequired: false,
     shown: false,
     payload: 206
-}
+})
 
-const DO_SET_RELAY: CommandType = {
+const DO_SET_RELAY: CommandType = createCommand({
     Command: "DO_SET_RELAY",
     p1: true,
     p2: true,
@@ -355,9 +355,9 @@ const DO_SET_RELAY: CommandType = {
     altRequired: false,
     shown: false,
     payload: 181
-}
+})
 
-const DO_REPEAT_RELAY: CommandType = {
+const DO_REPEAT_RELAY: CommandType = createCommand({
     Command: "DO_REPEAT_RELAY",
     p1: true,
     p2: true,
@@ -371,9 +371,9 @@ const DO_REPEAT_RELAY: CommandType = {
     altRequired: false,
     shown: false,
     payload: 182
-}
+})
 
-const DO_SET_SERVO: CommandType = {
+const DO_SET_SERVO: CommandType = createCommand({
     Command: "DO_SET_SERVO",
     p1: true,
     p2: true,
@@ -386,9 +386,9 @@ const DO_SET_SERVO: CommandType = {
     altRequired: false,
     shown: false,
     payload: 183
-}
+})
 
-const DO_REPEAT_SERVO: CommandType = {
+const DO_REPEAT_SERVO: CommandType = createCommand({
     Command: "DO_REPEAT_SERVO",
     p1: true,
     p2: true,
@@ -403,9 +403,9 @@ const DO_REPEAT_SERVO: CommandType = {
     altRequired: false,
     shown: false,
     payload: 184
-}
+})
 
-const DO_DIGICAM_CONFIGURE: CommandType = {
+const DO_DIGICAM_CONFIGURE: CommandType = createCommand({
     Command: "DO_DIGICAM_CONFIGURE",
     p1: true,
     p2: true,
@@ -420,9 +420,9 @@ const DO_DIGICAM_CONFIGURE: CommandType = {
     latName: "Exposure Mode",
     longName: "Command ID",
     payload: 202
-}
+})
 
-const DO_DIGICAM_CONTROL: CommandType = {
+const DO_DIGICAM_CONTROL: CommandType = createCommand({
     Command: "DO_DIGICAM_CONTROL",
     p1: true,
     p2: true,
@@ -437,9 +437,9 @@ const DO_DIGICAM_CONTROL: CommandType = {
     latName: "Shutter Cmd",
     longName: "Command ID",
     payload: 203
-}
+})
 
-const DO_MOUNT_CONTROL: CommandType = {
+const DO_MOUNT_CONTROL: CommandType = createCommand({
     Command: "DO_MOUNT_CONTROL",
     p1: true,
     p2: true,
@@ -453,7 +453,7 @@ const DO_MOUNT_CONTROL: CommandType = {
     altRequired: false,
     shown: false,
     payload: 205
-}
+})
 
 const COMMAND_TYPE_OBJECT_ARRAY = {
     ["WAYPOINT" as string]: WAYPOINT,

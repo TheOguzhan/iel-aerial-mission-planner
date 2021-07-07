@@ -1,5 +1,5 @@
 import { ACTION } from './actions';
-import { createState } from './createState';
+import { createState } from '../../utils/createState';
 export interface AllState {
     state: State
 }

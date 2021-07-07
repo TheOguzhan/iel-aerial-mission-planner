@@ -12,6 +12,8 @@ export default function useGeo(passedData: Data) {
     const [nextDistance, setNextDistance] = useState<number>(0);
     const [previousNodePath, setPreviousNodePath] = useState<Array<Path>>([{ lat: Number(passedData.lat), lng: Number(passedData.long) }]);
     const [nextNodePath, setNextNodePath] = useState<Array<Path>>([{ lat: Number(passedData.lat), lng: Number(passedData.long) }]);
+    const [airDistanceHome, setAirDistanceHome] = useState<number>(0);
+    const [absoluteDistanceHome, setAbsoluteDistanceHome] = useState<number>(0);
     const distanceFromPreviousNode = useCallback(() => {
         if (passedDataIndex <= 0) {
             setPreviousNodePath([{ lat: Number(passedData.lat), lng: Number(passedData.long) }])
@@ -66,13 +68,32 @@ export default function useGeo(passedData: Data) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
 
-
+    const airDistanceToHome = useCallback(() => {
+        if(passedDataIndex <= 0){
+            setAirDistanceHome(0);
+            setAbsoluteDistanceHome(0);
+        }
+        else {
+            let homeNode: Data = data[0];
+            let airDistanceInMeter: number = getDistance({
+                latitude: Number(homeNode.lat),
+                longitude: Number(homeNode.long)
+            }, {
+                latitude: Number(passedData.lat),
+                longitude: Number(passedData.long)
+            });
+            setAirDistanceHome(airDistanceInMeter);
+            setAbsoluteDistanceHome(+Math.sqrt(Math.pow(+passedData.alt, 2) + Math.pow(airDistanceInMeter, 2)).toFixed(4))
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [data])
 
     useEffect(() => {
         distanceFromPreviousNode();
         distanceToNextNode();
+        airDistanceToHome();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data, passedData]);
 
-    return [previousDistance, nextDistance, previousNodePath, nextNodePath] as const;
+    return [previousDistance, nextDistance, previousNodePath, nextNodePath, airDistanceHome , absoluteDistanceHome] as const;
 }

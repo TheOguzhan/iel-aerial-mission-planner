@@ -4,6 +4,7 @@ import Table from "../components/Table";
 import useData from "../hooks/useData";
 import usePushData from "../hooks/usePushData";
 import { AdvancedMarker } from "../components/AdvancedMarker";
+import { COMMAND_TYPE_OBJECT_ARRAY } from "../objects/objects";
 
 const center = {
   lat: 41.01202178051607,
@@ -69,9 +70,19 @@ const Screen: React.FC = () => {
           }}
         >
           <Polyline path={getPath()} options={options} />
-          {data.map((element, index) => (
-            <AdvancedMarker element={element} index={index} key={index} />
-          ))}
+          {data.map((element, index) => {
+            if (
+              !COMMAND_TYPE_OBJECT_ARRAY[element.command.toString()]
+                .longRequired &&
+              !COMMAND_TYPE_OBJECT_ARRAY[element.command.toString()].latRequired
+            ) {
+              return null;
+            } else {
+              return (
+                <AdvancedMarker element={element} index={index} key={index} />
+              );
+            }
+          })}
         </GoogleMap>
       </LoadScript>
       <Table marks={data} />

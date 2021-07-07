@@ -32,6 +32,9 @@ export const dataReducer = (state: DataState = initialState, action: ACTION) => 
         case "UP_DATA": {
             const old_index: number = state.data.indexOf(action.payload);
             const new_index: number = old_index - 1;
+            if(old_index === 1){
+                return {...state}
+            }
             if (new_index >= 0 && new_index < state.data.length) {
                 const copyData = Object.assign([], state.data);
                 const newData = array_move(copyData, old_index, new_index);

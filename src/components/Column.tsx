@@ -86,6 +86,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
             setCommand(element);
           }}
           large={true}
+          disabled={props.data.command === "HOME"}
         />
       </td>
       <td
@@ -233,6 +234,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
           onClick={(e) => {
             removeData(props.data);
           }}
+          disabled={props.data.command === "HOME"}
         >
           X
         </button>
@@ -255,6 +257,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
           onClick={(e) => {
             upTheData(props.data);
           }}
+          disabled={props.data.command === "HOME"}
         >
           Up
         </button>
@@ -277,6 +280,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
           onClick={(e) => {
             downTheData(props.data);
           }}
+          disabled={props.data.command === "HOME"}
         >
           Down
         </button>

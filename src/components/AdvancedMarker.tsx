@@ -2,6 +2,8 @@ import * as React from "react";
 import { Marker, InfoWindow, Polyline } from "@react-google-maps/api";
 import useChangeData from "../hooks/useChangeData";
 import useGeo from "../hooks/useGeo";
+import pink from "../images/pink.svg";
+import yellow from "../images/yellow.svg";
 
 export interface IAdvancedMarkerProps {
   element: Data;
@@ -11,8 +13,14 @@ export interface IAdvancedMarkerProps {
 export function AdvancedMarker(props: IAdvancedMarkerProps) {
   const [changeData] = useChangeData();
   const [visible, setVisible] = React.useState<boolean>(false);
-  const [previousDistance, nextDistance, previousNodePath, nextNodePath] =
-    useGeo(props.element);
+  const [
+    previousDistance,
+    nextDistance,
+    previousNodePath,
+    nextNodePath,
+    airDistanceHome,
+    absoluteDistanceHome,
+  ] = useGeo(props.element);
 
   const previousOptions = {
     fillColor: "transparent",
@@ -50,6 +58,7 @@ export function AdvancedMarker(props: IAdvancedMarkerProps) {
           lat: Number(props.element?.lat),
           lng: Number(props.element?.long),
         }}
+        icon={props.element.command === "HOME" ? yellow : pink}
         draggable={true}
         onDragEnd={(e) => {
           let gotData: Data = {
@@ -89,7 +98,17 @@ export function AdvancedMarker(props: IAdvancedMarkerProps) {
               ) : null}
               {nextDistance !== 0 ? (
                 <h1 style={{ color: "green" }}>
-                  {nextDistance} m to next node
+                  {nextDistance}m to next node
+                </h1>
+              ) : null}
+              {airDistanceHome !== 0 ? (
+                <h1 style={{ color: "#C533FD" }}>
+                  {airDistanceHome}m to home in air distance
+                </h1>
+              ) : null}
+              {absoluteDistanceHome !== 0 ? (
+                <h1 style={{ color: "#006DDB" }}>
+                  {absoluteDistanceHome}m to home 
                 </h1>
               ) : null}
             </div>

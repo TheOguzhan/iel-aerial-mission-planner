@@ -1,4 +1,4 @@
-type Data = {
+declare type Data = {
     command: String,
     p1: String,
     p2: String,
@@ -10,19 +10,18 @@ type Data = {
     frame: String
 }
 
-type FrameObjectType = {
+declare type FrameObjectType = {
     [TERRAIN: String]: Number,
     [ABSOLUTE: String]: Number,
     [RELATIVE: String]: Number
 }
 
-type CommandObject = {
+declare type CommandObject = {
     [Command: String]: CommandType
 }
 
 
-// TODO: Refactor this like createState
-type CommandType = {
+declare type CommandType = {
     Command: String,
     p1: Boolean,
     p2: Boolean,
@@ -45,12 +44,11 @@ type CommandType = {
     longName?: String,
 }
 
-type Center = {
+declare type Center = {
     lat: Number,
     lng: Number
 }
-
-type Path = {
+declare type Path = {
     lat: Number,
     lng: Number
 }
