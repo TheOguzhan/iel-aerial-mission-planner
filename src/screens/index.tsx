@@ -25,7 +25,7 @@ const options = {
 };
 
 const Screen: React.FC = () => {
-  const [data, getPath] = useData();
+  const [data, path] = useData();
   const [pushData] = usePushData();
 
   const google_maps_api_key: string = process.env
@@ -69,7 +69,7 @@ const Screen: React.FC = () => {
             pushData(gotData);
           }}
         >
-          <Polyline path={getPath()} options={options} />
+          <Polyline path={path} options={options} />
           {data.map((element, index) => {
             if (
               !COMMAND_TYPE_OBJECT_ARRAY[element.command.toString()]

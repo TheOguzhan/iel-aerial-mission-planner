@@ -149,5 +149,6 @@ export const actionList = {
     ["DO_SET_SERVO" as string]: doSetServo,
     ["DO_REPEAT_SERVO" as string]: doRepeatServo,
     ["DO_DIGICAM_CONTROL" as string]: doDigicamControl,
+    ["DO_DIGICAM_CONFIGURE" as string]: doDigicamConfigure,
     ["DO_MOUNT_CONTROL" as string]: doMountControl,
 }

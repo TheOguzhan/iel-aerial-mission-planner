@@ -2,8 +2,10 @@ import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { COMMAND_TYPE_OBJECT_ARRAY } from "../objects/objects";
+import React from "react";
 
 export default function useData() {
+    const [path, setPath] = React.useState<Array<Path>>([]);
     const data = useSelector<RootState, RootState["dataReducer"]["data"]>(
         (state) => state.dataReducer.data
     );
@@ -25,7 +27,9 @@ export default function useData() {
         });
         return paths;
     }, [data]);
+    React.useEffect(() => {
+        setPath(getPath())
+    }, [data, getPath])
 
-
-    return [data, getPath] as const;
+    return [data, path] as const;
 }

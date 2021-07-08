@@ -4,15 +4,16 @@ import useChangeData from "../hooks/useChangeData";
 import useGeo from "../hooks/useGeo";
 import pink from "../images/pink.svg";
 import yellow from "../images/yellow.svg";
+import purple from "../images/purple.svg";
 
 export interface IAdvancedMarkerProps {
   element: Data;
   index: number;
 }
-
 export function AdvancedMarker(props: IAdvancedMarkerProps) {
   const [changeData] = useChangeData();
   const [visible, setVisible] = React.useState<boolean>(false);
+  
   const [
     previousDistance,
     nextDistance,
@@ -51,14 +52,15 @@ export function AdvancedMarker(props: IAdvancedMarkerProps) {
     background: `white`,
     padding: 15,
   };
+  
   return (
-    <>
+    <React.Fragment>
       <Marker
         position={{
           lat: Number(props.element?.lat),
           lng: Number(props.element?.long),
         }}
-        icon={props.element.command === "HOME" ? yellow : pink}
+        icon={props.element.command === "HOME" ? yellow : (props.element.command === "DO_WINCH" ? purple : pink)}
         draggable={true}
         onDragEnd={(e) => {
           let gotData: Data = {
@@ -74,7 +76,7 @@ export function AdvancedMarker(props: IAdvancedMarkerProps) {
       />
 
       {visible ? (
-        <>
+        <React.Fragment>
           {previousDistance !== 0 ? (
             <Polyline path={previousNodePath} options={previousOptions} />
           ) : null}
@@ -97,9 +99,7 @@ export function AdvancedMarker(props: IAdvancedMarkerProps) {
                 </h1>
               ) : null}
               {nextDistance !== 0 ? (
-                <h1 style={{ color: "green" }}>
-                  {nextDistance}m to next node
-                </h1>
+                <h1 style={{ color: "green" }}>{nextDistance}m to next node</h1>
               ) : null}
               {airDistanceHome !== 0 ? (
                 <h1 style={{ color: "#C533FD" }}>
@@ -108,13 +108,13 @@ export function AdvancedMarker(props: IAdvancedMarkerProps) {
               ) : null}
               {absoluteDistanceHome !== 0 ? (
                 <h1 style={{ color: "#006DDB" }}>
-                  {absoluteDistanceHome}m to home 
+                  {absoluteDistanceHome}m to home
                 </h1>
               ) : null}
             </div>
           </InfoWindow>
-        </>
+        </React.Fragment>
       ) : null}
-    </>
+    </React.Fragment>
   );
 }
