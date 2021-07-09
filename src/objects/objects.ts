@@ -419,7 +419,9 @@ const DO_DIGICAM_CONFIGURE: CommandType = createCommand({
     longModified: true,
     latName: "Exposure Mode",
     longName: "Command ID",
-    payload: 202
+    payload: 202,
+    longRequired: false,
+    latRequired: false
 })
 
 const DO_DIGICAM_CONTROL: CommandType = createCommand({
@@ -436,7 +438,9 @@ const DO_DIGICAM_CONTROL: CommandType = createCommand({
     longModified: true,
     latName: "Shutter Cmd",
     longName: "Command ID",
-    payload: 203
+    payload: 203, 
+    longRequired: false,
+    latRequired: false
 })
 
 const DO_MOUNT_CONTROL: CommandType = createCommand({

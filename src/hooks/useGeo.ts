@@ -16,6 +16,7 @@ export default function useGeo(passedData: Data) {
     const [airDistanceHome, setAirDistanceHome] = useState<number>(0);
     const [absoluteDistanceHome, setAbsoluteDistanceHome] = useState<number>(0);
     const [previousNode, setPreviousNode] = useState<Data>();
+    const [nextNode, setNextNode] = useState<Data>();
     //  TODO: nightmare nightmare nightmare
     const distanceFromPreviousNode = useCallback(() => {
         if (passedDataIndex <= 0) {
@@ -29,7 +30,6 @@ export default function useGeo(passedData: Data) {
                     // eslint-disable-next-line no-mixed-operators
                     && COMMAND_TYPE_OBJECT_ARRAY[previousNodes[i].command.toString()].latRequired)
                     // eslint-disable-next-line no-mixed-operators
-                    && (!COMMAND_TYPE_OBJECT_ARRAY[previousNodes[i].command.toString()].latModified && !COMMAND_TYPE_OBJECT_ARRAY[previousNodes[i].command.toString()].longModified)
                 ) {
 
                     setPreviousNode(previousNodes[i]);
@@ -67,24 +67,43 @@ export default function useGeo(passedData: Data) {
             setNextNodePath([{ lat: Number(passedData.lat), lng: Number(passedData.long) }])
             setNextDistance(0);
         } else {
-            let nextNode: Data = data[passedDataIndex + 1];
-            setNextNodePath([{
-                lat: Number(nextNode.lat),
-                lng: Number(nextNode.long)
-            },
-            {
-                lat: Number(passedData.lat),
-                lng: Number(passedData.long)
-            }])
-            let distanceInMeter: number = getDistance({
-                latitude: Number(nextNode.lat),
-                longitude: Number(nextNode.long)
-            },
+            let nextNodes: Array<Data> = data.slice(passedDataIndex, data.length);
+            console.debug(`PassedData:`, passedData);
+            console.table(nextNodes);
+            for (var i = 1; i < nextNodes.length; i++) {
+                if ((COMMAND_TYPE_OBJECT_ARRAY[nextNodes[i].command.toString()].longRequired
+                    // eslint-disable-next-line no-mixed-operators
+                    && COMMAND_TYPE_OBJECT_ARRAY[nextNodes[i].command.toString()].latRequired)
+                    // eslint-disable-next-line no-mixed-operators
+                ) {
+
+                    setNextNode(nextNodes[i]);
+                    break;
+                } else {
+                    setNextNodePath([{ lat: Number(passedData.lat), lng: Number(passedData.long) }])
+                    setNextDistance(0)
+                }
+            }
+            console.log(`NextNode:`, nextNode);
+            if (nextNode) {
+                setNextNodePath([{
+                    lat: Number(nextNode.lat),
+                    lng: Number(nextNode.long)
+                },
                 {
-                    latitude: Number(passedData.lat),
-                    longitude: Number(passedData.long)
-                })
-            setNextDistance(distanceInMeter);
+                    lat: Number(passedData.lat),
+                    lng: Number(passedData.long)
+                }])
+                let distanceInMeter: number = getDistance({
+                    latitude: Number(nextNode.lat),
+                    longitude: Number(nextNode.long)
+                },
+                    {
+                        latitude: Number(passedData.lat),
+                        longitude: Number(passedData.long)
+                    })
+                setNextDistance(distanceInMeter);
+            }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);

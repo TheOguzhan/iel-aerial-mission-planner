@@ -166,7 +166,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
           onChange={(e: React.FormEvent<HTMLInputElement>): void => {
             setLat(e.currentTarget.value);
           }}
-          disabled={!COMMAND_TYPE_OBJECT_ARRAY[command.toString()].latRequired}
+          disabled={!COMMAND_TYPE_OBJECT_ARRAY[command.toString()].latRequired && !COMMAND_TYPE_OBJECT_ARRAY[command.toString()].latModified}
         />
       </td>
       <td
@@ -182,7 +182,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
           onChange={(e: React.FormEvent<HTMLInputElement>): void => {
             setLng(e.currentTarget.value);
           }}
-          disabled={!COMMAND_TYPE_OBJECT_ARRAY[command.toString()].longRequired}
+          disabled={!COMMAND_TYPE_OBJECT_ARRAY[command.toString()].longRequired && !COMMAND_TYPE_OBJECT_ARRAY[command.toString()].longModified}
         />
       </td>
       <td
