@@ -17,7 +17,6 @@ export default function useGeo(passedData: Data) {
     const [absoluteDistanceHome, setAbsoluteDistanceHome] = useState<number>(0);
     const [previousNode, setPreviousNode] = useState<Data>();
     const [nextNode, setNextNode] = useState<Data>();
-    //  TODO: nightmare nightmare nightmare
     const distanceFromPreviousNode = useCallback(() => {
         if (passedDataIndex <= 0) {
             setPreviousNodePath([{ lat: Number(passedData.lat), lng: Number(passedData.long) }])
@@ -68,9 +67,9 @@ export default function useGeo(passedData: Data) {
             setNextDistance(0);
         } else {
             let nextNodes: Array<Data> = data.slice(passedDataIndex, data.length);
-            console.debug(`PassedData:`, passedData);
-            console.table(nextNodes);
-            for (var i = 1; i < nextNodes.length; i++) {
+
+
+            for (var i = 1; i < nextNodes.length + 1; i++) {
                 if ((COMMAND_TYPE_OBJECT_ARRAY[nextNodes[i].command.toString()].longRequired
                     // eslint-disable-next-line no-mixed-operators
                     && COMMAND_TYPE_OBJECT_ARRAY[nextNodes[i].command.toString()].latRequired)
@@ -84,7 +83,7 @@ export default function useGeo(passedData: Data) {
                     setNextDistance(0)
                 }
             }
-            console.log(`NextNode:`, nextNode);
+
             if (nextNode) {
                 setNextNodePath([{
                     lat: Number(nextNode.lat),

@@ -1,9 +1,9 @@
 import { createCommand } from '../utils/createCommand';
 
 const FrameObject: FrameObjectType = {
-    RELATIVE: 3,
-    ABSOLUTE: 0,
-    TERRAIN: 10
+    ["RELATIVE" as string]: 3,
+    ["ABSOLUTE" as string]: 0,
+    ["TERRAIN" as string]: 10
 };
 
 const FrameArray = ["RELATIVE", "ABSOLUTE", "TERRAIN"];
@@ -438,7 +438,7 @@ const DO_DIGICAM_CONTROL: CommandType = createCommand({
     longModified: true,
     latName: "Shutter Cmd",
     longName: "Command ID",
-    payload: 203, 
+    payload: 203,
     longRequired: false,
     latRequired: false
 })

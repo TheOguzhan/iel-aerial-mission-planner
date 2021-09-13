@@ -11,9 +11,9 @@ declare type Data = {
 }
 
 declare type FrameObjectType = {
-    [TERRAIN: String]: Number,
-    [ABSOLUTE: String]: Number,
-    [RELATIVE: String]: Number
+    [TERRAIN:  string]: Number,
+    [ABSOLUTE: string]: Number,
+    [RELATIVE: string]: Number
 }
 
 declare type CommandObject = {

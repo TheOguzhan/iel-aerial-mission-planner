@@ -83,6 +83,9 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
           options={CommandArray}
           val={props.data.command}
           onChange={(element: String) => {
+            if (element === "LAND") {
+              setAlt(String((0).toFixed(8)));
+            }
             setCommand(element);
           }}
           large={true}
@@ -166,7 +169,10 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
           onChange={(e: React.FormEvent<HTMLInputElement>): void => {
             setLat(e.currentTarget.value);
           }}
-          disabled={!COMMAND_TYPE_OBJECT_ARRAY[command.toString()].latRequired && !COMMAND_TYPE_OBJECT_ARRAY[command.toString()].latModified}
+          disabled={
+            !COMMAND_TYPE_OBJECT_ARRAY[command.toString()].latRequired &&
+            !COMMAND_TYPE_OBJECT_ARRAY[command.toString()].latModified
+          }
         />
       </td>
       <td
@@ -182,7 +188,10 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
           onChange={(e: React.FormEvent<HTMLInputElement>): void => {
             setLng(e.currentTarget.value);
           }}
-          disabled={!COMMAND_TYPE_OBJECT_ARRAY[command.toString()].longRequired && !COMMAND_TYPE_OBJECT_ARRAY[command.toString()].longModified}
+          disabled={
+            !COMMAND_TYPE_OBJECT_ARRAY[command.toString()].longRequired &&
+            !COMMAND_TYPE_OBJECT_ARRAY[command.toString()].longModified
+          }
         />
       </td>
       <td
@@ -214,6 +223,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
           onChange={(element: String) => {
             setFrameType(element);
           }}
+          disabled={props.data.command === "HOME"}
         />
       </td>
       <td
